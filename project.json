@@ -1,0 +1,30 @@
+{
+  "overview": "A fully SEO-optimized website for Dr. Ritesh Homoeopathic Clinic in Daltonganj, Jharkhand. Features multi-section navigation, service modals, appointment booking via WhatsApp, patient testimonials, blog articles, and local SEO structured data to help the clinic rank for 'best homeopathy doctor in Daltonganj'.",
+  "features": [
+    "Fixed nav with mobile hamburger and active state tracking",
+    "Hero section with doctor card, stats, and CTAs",
+    "About Doctor section with credentials and biography",
+    "About Clinic with Google Maps embed and feature cards",
+    "8 specialized treatment service cards with detail modals",
+    "Why Choose Us section with 8 differentiators",
+    "Patient testimonials (static 5-star reviews)",
+    "Blog section with 3 SEO-targeted inline articles",
+    "WhatsApp-based appointment booking form",
+    "Contact section with address, hours, and CTA buttons",
+    "Floating Call and WhatsApp action buttons",
+    "LocalBusiness structured data for local SEO",
+    "Fully responsive design across all screen sizes"
+  ],
+  "category": "healthcare",
+  "tags": [
+    "homeopathy",
+    "clinic",
+    "healthcare",
+    "seo",
+    "local-business",
+    "daltonganj",
+    "jharkhand",
+    "appointment-booking"
+  ],
+  "last_updated": "2026-04-12T14:43:59.325Z"
+}
