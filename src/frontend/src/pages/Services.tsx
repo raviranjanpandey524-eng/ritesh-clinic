@@ -21,6 +21,7 @@ const SERVICES = [
       "Seborrheic Dermatitis",
       "Lichen Planus",
     ],
+    image: "/assets/images/piles-flyer.png",
   },
   {
     key: "hair",
@@ -37,6 +38,7 @@ const SERVICES = [
       "Scalp Psoriasis",
       "Post-Pregnancy Hair Loss",
     ],
+    image: "/assets/images/hairfall-flyer.jpg",
   },
   {
     key: "allergy",
@@ -85,6 +87,7 @@ const SERVICES = [
       "Digestive Issues & Food Aversion",
       "Childhood Eczema & Skin Problems",
     ],
+    image: "/assets/images/pediatric-flyer.png",
   },
   {
     key: "chronic",
@@ -101,6 +104,41 @@ const SERVICES = [
       "Kidney Stones (Prevention & Management)",
       "Fatty Liver & Digestive Disorders",
     ],
+    image: "/assets/images/diabetes-flyer.jpg",
+  },
+  {
+    key: "joint",
+    icon: "🦴",
+    title: "Joint & Bone Pain",
+    desc: "Effective natural management of joint pain, arthritis, sciatica and musculoskeletal disorders — restoring mobility without painkillers or surgery.",
+    points: [
+      "Rheumatoid Arthritis",
+      "Osteoarthritis (Knee, Hip, Shoulder)",
+      "Sciatica & Lower Back Pain",
+      "Gout & Uric Acid Disorders",
+      "Cervical & Lumbar Spondylosis",
+      "Fibromyalgia",
+      "Frozen Shoulder",
+      "Sports Injuries (Chronic)",
+    ],
+    image: "/assets/images/joint-pain-flyer.png",
+  },
+  {
+    key: "piles",
+    icon: "🩹",
+    title: "Piles & Fistula",
+    desc: "Painless, non-surgical homeopathic treatment for haemorrhoids, anal fistula and related anorectal conditions with long-term relief.",
+    points: [
+      "Bleeding Piles (Grade 1–3)",
+      "Non-Bleeding (Dry) Piles",
+      "Anal Fistula (Fissure-in-Ano)",
+      "Anal Fissure (Painful)",
+      "Rectal Prolapse (early stage)",
+      "Itching & Burning in Anal Region",
+      "Post-Surgical Recurrence of Piles",
+      "Constipation-related Anorectal Issues",
+    ],
+    image: "/assets/images/piles2-flyer.jpg",
   },
 ];
 
@@ -190,7 +228,7 @@ export default function Services({ onNavigate }: ServicesProps) {
             }}
             className="services-grid"
           >
-            {SERVICES.map(({ key, icon, title, desc }, i) => (
+            {SERVICES.map(({ key, icon, title, desc, image }, i) => (
               <button
                 key={key}
                 type="button"
@@ -200,7 +238,7 @@ export default function Services({ onNavigate }: ServicesProps) {
                 style={{
                   background: "white",
                   borderRadius: 20,
-                  padding: "32px 24px",
+                  padding: 0,
                   border: "1px solid rgba(13,107,59,0.12)",
                   boxShadow: "0 2px 16px rgba(13,107,59,0.08)",
                   cursor: "pointer",
@@ -214,53 +252,95 @@ export default function Services({ onNavigate }: ServicesProps) {
                   overflow: "hidden",
                 }}
               >
-                <div
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 16,
-                    background: "#f0faf5",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.8rem",
-                    marginBottom: 20,
-                  }}
-                >
-                  {icon}
-                </div>
-                <h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    color: "#0f2318",
-                    marginBottom: 10,
-                  }}
-                >
-                  {title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.82rem",
-                    color: "#5c7a66",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
-                  {desc}
-                </p>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    marginTop: 16,
-                    color: "#0d6b3b",
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Learn More →
+                {/* Card image header */}
+                {image ? (
+                  <div
+                    style={{
+                      height: 160,
+                      overflow: "hidden",
+                      borderRadius: "20px 20px 0 0",
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={title}
+                      loading="lazy"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.4s ease",
+                      }}
+                      className="svc-img-zoom"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      height: 80,
+                      background: "#f0faf5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "2.4rem",
+                      borderRadius: "20px 20px 0 0",
+                    }}
+                  >
+                    {icon}
+                  </div>
+                )}
+
+                <div style={{ padding: "20px 24px 28px" }}>
+                  {image && (
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        background: "#f0faf5",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.4rem",
+                        marginBottom: 12,
+                      }}
+                    >
+                      {icon}
+                    </div>
+                  )}
+                  <h3
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      color: "#0f2318",
+                      marginBottom: 10,
+                    }}
+                  >
+                    {title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "0.82rem",
+                      color: "#5c7a66",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
+                    {desc}
+                  </p>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      marginTop: 16,
+                      color: "#0d6b3b",
+                      fontSize: "0.8rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Learn More →
+                  </div>
                 </div>
               </button>
             ))}
@@ -299,7 +379,7 @@ export default function Services({ onNavigate }: ServicesProps) {
             style={{
               background: "white",
               borderRadius: 24,
-              padding: "36px 32px",
+              padding: 0,
               maxWidth: 520,
               width: "100%",
               maxHeight: "85vh",
@@ -307,103 +387,135 @@ export default function Services({ onNavigate }: ServicesProps) {
               position: "relative",
             }}
           >
-            <button
-              type="button"
-              onClick={() => setActiveModal(null)}
-              aria-label="Close"
-              style={{
-                position: "absolute",
-                top: 16,
-                right: 16,
-                background: "#f0faf5",
-                border: "none",
-                width: 34,
-                height: 34,
-                borderRadius: "50%",
-                cursor: "pointer",
-                fontSize: "1rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              ✕
-            </button>
-            <span
-              style={{ fontSize: "2.4rem", marginBottom: 14, display: "block" }}
-            >
-              {activeService.icon}
-            </span>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "1.5rem",
-                color: "#0f2318",
-                marginBottom: 12,
-              }}
-            >
-              {activeService.title}
-            </h2>
-            <p
-              style={{
-                color: "#5c7a66",
-                fontSize: "0.92rem",
-                lineHeight: 1.9,
-                marginBottom: 18,
-              }}
-            >
-              {activeService.desc}
-            </p>
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px" }}>
-              {activeService.points.map((pt) => (
-                <li
-                  key={pt}
+            {/* Modal image header */}
+            {activeService.image && (
+              <div
+                style={{
+                  height: 180,
+                  overflow: "hidden",
+                  borderRadius: "24px 24px 0 0",
+                }}
+              >
+                <img
+                  src={activeService.image}
+                  alt={activeService.title}
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 10,
-                    padding: "9px 14px",
-                    background: "#f0faf5",
-                    borderRadius: 10,
-                    marginBottom: 8,
-                    fontSize: "0.85rem",
-                    color: "#2d4a38",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
                   }}
-                >
-                  <span
-                    style={{ color: "#0d6b3b", fontWeight: 700, flexShrink: 0 }}
+                />
+              </div>
+            )}
+            <div style={{ padding: "28px 32px 36px" }}>
+              <button
+                type="button"
+                onClick={() => setActiveModal(null)}
+                aria-label="Close"
+                style={{
+                  position: "absolute",
+                  top: activeService.image ? 148 : 16,
+                  right: 16,
+                  background: "white",
+                  border: "none",
+                  width: 34,
+                  height: 34,
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  fontSize: "1rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+                  zIndex: 1,
+                }}
+              >
+                ✕
+              </button>
+              <span
+                style={{
+                  fontSize: "2.4rem",
+                  marginBottom: 14,
+                  display: "block",
+                }}
+              >
+                {activeService.icon}
+              </span>
+              <h2
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "1.5rem",
+                  color: "#0f2318",
+                  marginBottom: 12,
+                }}
+              >
+                {activeService.title}
+              </h2>
+              <p
+                style={{
+                  color: "#5c7a66",
+                  fontSize: "0.92rem",
+                  lineHeight: 1.9,
+                  marginBottom: 18,
+                }}
+              >
+                {activeService.desc}
+              </p>
+              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px" }}>
+                {activeService.points.map((pt) => (
+                  <li
+                    key={pt}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 10,
+                      padding: "9px 14px",
+                      background: "#f0faf5",
+                      borderRadius: 10,
+                      marginBottom: 8,
+                      fontSize: "0.85rem",
+                      color: "#2d4a38",
+                    }}
                   >
-                    ✓
-                  </span>
-                  {pt}
-                </li>
-              ))}
-            </ul>
-            <button
-              type="button"
-              onClick={() => {
-                setActiveModal(null);
-                onNavigate("appointment");
-              }}
-              data-ocid="service-modal-book-btn"
-              className="btn-primary-hover"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
-                background: "#0d6b3b",
-                color: "white",
-                padding: "12px 24px",
-                borderRadius: 12,
-                fontWeight: 600,
-                fontSize: "0.88rem",
-                border: "none",
-                cursor: "pointer",
-                fontFamily: "'Poppins', sans-serif",
-              }}
-            >
-              📅 Book Consultation for This
-            </button>
+                    <span
+                      style={{
+                        color: "#0d6b3b",
+                        fontWeight: 700,
+                        flexShrink: 0,
+                      }}
+                    >
+                      ✓
+                    </span>
+                    {pt}
+                  </li>
+                ))}
+              </ul>
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveModal(null);
+                  onNavigate("appointment");
+                }}
+                data-ocid="service-modal-book-btn"
+                className="btn-primary-hover"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 8,
+                  background: "#0d6b3b",
+                  color: "white",
+                  padding: "12px 24px",
+                  borderRadius: 12,
+                  fontWeight: 600,
+                  fontSize: "0.88rem",
+                  border: "none",
+                  cursor: "pointer",
+                  fontFamily: "'Poppins', sans-serif",
+                }}
+              >
+                📅 Book Consultation for This
+              </button>
+            </div>
           </div>
         </dialog>
       )}
@@ -413,6 +525,7 @@ export default function Services({ onNavigate }: ServicesProps) {
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr !important; } }
         .fade-up-scroll.visible { opacity: 1 !important; transform: translateY(0) !important; }
         .service-card-hover:hover { transform: translateY(-8px) !important; box-shadow: 0 20px 60px rgba(13,107,59,0.18) !important; }
+        .service-card-hover:hover .svc-img-zoom { transform: scale(1.06) !important; }
         .btn-primary-hover:hover { background: #1a8a4e !important; transform: translateY(-2px) !important; }
       `}</style>
     </div>

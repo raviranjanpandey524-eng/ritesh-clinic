@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { PageId } from "../App";
 
 interface HomeProps {
@@ -25,6 +25,7 @@ const SERVICES_PREVIEW = [
     icon: "💇",
     title: "Hair Problems",
     desc: "Hair fall, alopecia, dandruff — natural regrowth therapy.",
+    image: "/assets/images/hairfall-flyer.jpg",
   },
   {
     icon: "🤧",
@@ -40,12 +41,23 @@ const SERVICES_PREVIEW = [
     icon: "👶",
     title: "Child Care",
     desc: "Safe, gentle treatment for children of all ages.",
+    image: "/assets/images/pediatric-flyer.png",
   },
   {
     icon: "🩺",
     title: "Chronic Diseases",
     desc: "Diabetes, thyroid, arthritis — holistic management.",
+    image: "/assets/images/diabetes-flyer.jpg",
   },
+];
+
+const CAROUSEL_ITEMS = [
+  { src: "/assets/images/hairfall-flyer.jpg", label: "Hair Fall Treatment" },
+  { src: "/assets/images/diabetes-flyer.jpg", label: "Diabetes Management" },
+  { src: "/assets/images/piles-flyer.png", label: "Piles & Fistula Care" },
+  { src: "/assets/images/piles2-flyer.jpg", label: "Anorectal Disorders" },
+  { src: "/assets/images/joint-pain-flyer.png", label: "Joint Pain Relief" },
+  { src: "/assets/images/pediatric-flyer.png", label: "Paediatric Care" },
 ];
 
 function useFadeUpObserver() {
@@ -66,6 +78,49 @@ function useFadeUpObserver() {
 
 export default function Home({ onNavigate }: HomeProps) {
   useFadeUpObserver();
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll carousel
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    let frame: number;
+    let paused = false;
+
+    const scroll = () => {
+      if (!paused) {
+        el.scrollLeft += 0.6;
+        if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      frame = requestAnimationFrame(scroll);
+    };
+
+    frame = requestAnimationFrame(scroll);
+    el.addEventListener("mouseenter", () => {
+      paused = true;
+    });
+    el.addEventListener("mouseleave", () => {
+      paused = false;
+    });
+    el.addEventListener(
+      "touchstart",
+      () => {
+        paused = true;
+      },
+      { passive: true },
+    );
+    el.addEventListener(
+      "touchend",
+      () => {
+        paused = false;
+      },
+      { passive: true },
+    );
+
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   return (
     <div>
@@ -308,21 +363,29 @@ export default function Home({ onNavigate }: HomeProps) {
               >
                 ✨ Senior Homeopath
               </div>
+              {/* Doctor photo */}
               <div
                 style={{
-                  width: 120,
-                  height: 120,
+                  width: 140,
+                  height: 140,
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, #0d6b3b, #25a563)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "3rem",
+                  overflow: "hidden",
                   margin: "0 auto 20px",
+                  border: "4px solid #f0faf5",
                   boxShadow: "0 8px 24px rgba(13,107,59,0.25)",
                 }}
               >
-                👨‍⚕️
+                <img
+                  src="/assets/images/doctor-traditional.jpg"
+                  alt="Dr. Ritesh Kumar Tiwary"
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top center",
+                  }}
+                />
               </div>
               <h3
                 style={{
@@ -411,6 +474,208 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
+      {/* Hindi Banner */}
+      <div
+        style={{
+          width: "100%",
+          overflow: "hidden",
+          lineHeight: 0,
+          borderTop: "3px solid #c9a84c",
+          borderBottom: "3px solid #0d6b3b",
+        }}
+        data-ocid="hindi-banner"
+      >
+        <img
+          src="/assets/images/hindi-banner.jpg"
+          alt="डॉ. रितेश होम्योपैथिक क्लिनिक — दालतोनगंज"
+          loading="lazy"
+          style={{
+            width: "100%",
+            maxHeight: 220,
+            objectFit: "cover",
+            objectPosition: "center 30%",
+            display: "block",
+          }}
+        />
+      </div>
+
+      {/* Conditions Carousel */}
+      <section
+        style={{
+          padding: "72px 0 80px",
+          background: "linear-gradient(160deg, #f7fdf9 0%, #e8f7f0 100%)",
+          overflow: "hidden",
+        }}
+        data-ocid="conditions-carousel"
+      >
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#25a563",
+              marginBottom: 12,
+            }}
+          >
+            Proven Results
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+              fontWeight: 700,
+              textAlign: "center",
+              color: "#0f2318",
+              marginBottom: 8,
+            }}
+          >
+            Conditions We{" "}
+            <span style={{ color: "#0d6b3b" }}>Treat Successfully</span>
+          </h2>
+          <div
+            style={{
+              width: 60,
+              height: 3,
+              background: "linear-gradient(90deg, #0d6b3b, #25a563)",
+              borderRadius: 2,
+              margin: "0 auto 40px",
+            }}
+          />
+        </div>
+
+        {/* Scrollable carousel */}
+        <div style={{ position: "relative" }}>
+          {/* Fade edges */}
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              width: 80,
+              background: "linear-gradient(90deg, #f0faf5, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              right: 0,
+              top: 0,
+              bottom: 0,
+              width: 80,
+              background: "linear-gradient(270deg, #f0faf5, transparent)",
+              zIndex: 2,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            ref={carouselRef}
+            style={{
+              display: "flex",
+              gap: 20,
+              overflowX: "auto",
+              scrollbarWidth: "none",
+              padding: "12px 80px 20px",
+              cursor: "grab",
+            }}
+          >
+            {/* Duplicate for seamless loop */}
+            {[
+              ...CAROUSEL_ITEMS.map((item) => ({
+                ...item,
+                uid: `a-${item.label}`,
+              })),
+              ...CAROUSEL_ITEMS.map((item) => ({
+                ...item,
+                uid: `b-${item.label}`,
+              })),
+            ].map(({ src, label, uid }) => (
+              <div
+                key={uid}
+                style={{
+                  flex: "0 0 200px",
+                  height: 280,
+                  borderRadius: 16,
+                  overflow: "hidden",
+                  boxShadow: "0 4px 20px rgba(13,107,59,0.15)",
+                  border: "2px solid rgba(13,107,59,0.12)",
+                  position: "relative",
+                  transition: "transform 0.3s, box-shadow 0.3s",
+                }}
+                className="carousel-card"
+              >
+                <img
+                  src={src}
+                  alt={label}
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "28px 12px 12px",
+                    background:
+                      "linear-gradient(0deg, rgba(13,107,59,0.85) 0%, transparent 100%)",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "white",
+                      fontSize: "0.78rem",
+                      fontWeight: 700,
+                      fontFamily: "'Poppins', sans-serif",
+                      textAlign: "center",
+                      display: "block",
+                    }}
+                  >
+                    {label}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ textAlign: "center", marginTop: 28 }}>
+          <button
+            type="button"
+            onClick={() => onNavigate("services")}
+            data-ocid="carousel-view-all"
+            className="btn-primary-hover"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              background: "#0d6b3b",
+              color: "white",
+              padding: "12px 28px",
+              borderRadius: 12,
+              fontWeight: 600,
+              fontSize: "0.9rem",
+              border: "none",
+              cursor: "pointer",
+              fontFamily: "'Poppins', sans-serif",
+              boxShadow: "0 4px 20px rgba(13,107,59,0.3)",
+            }}
+          >
+            View All Treatments →
+          </button>
+        </div>
+      </section>
+
       {/* Services Preview */}
       <section style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -469,7 +734,7 @@ export default function Home({ onNavigate }: HomeProps) {
             }}
             className="services-preview-grid"
           >
-            {SERVICES_PREVIEW.map(({ icon, title, desc }, i) => (
+            {SERVICES_PREVIEW.map(({ icon, title, desc, image }, i) => (
               <button
                 key={title}
                 type="button"
@@ -478,7 +743,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 style={{
                   background: "white",
                   borderRadius: 20,
-                  padding: "32px 24px",
+                  padding: 0,
                   border: "1px solid rgba(13,107,59,0.12)",
                   boxShadow: "0 2px 16px rgba(13,107,59,0.08)",
                   cursor: "pointer",
@@ -488,55 +753,96 @@ export default function Home({ onNavigate }: HomeProps) {
                   transform: "translateY(20px)",
                   textAlign: "left",
                   fontFamily: "'Poppins', sans-serif",
+                  overflow: "hidden",
                 }}
               >
-                <div
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 16,
-                    background: "#f0faf5",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "1.8rem",
-                    marginBottom: 20,
-                  }}
-                >
-                  {icon}
-                </div>
-                <h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    color: "#0f2318",
-                    marginBottom: 10,
-                  }}
-                >
-                  {title}
-                </h3>
-                <p
-                  style={{
-                    fontSize: "0.82rem",
-                    color: "#5c7a66",
-                    lineHeight: 1.7,
-                    margin: 0,
-                  }}
-                >
-                  {desc}
-                </p>
-                <div
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 6,
-                    marginTop: 16,
-                    color: "#0d6b3b",
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                  }}
-                >
-                  Learn More →
+                {image ? (
+                  <div
+                    style={{
+                      height: 160,
+                      overflow: "hidden",
+                      borderRadius: "20px 20px 0 0",
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={title}
+                      loading="lazy"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        transition: "transform 0.4s ease",
+                      }}
+                      className="card-img-zoom"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      height: 80,
+                      background: "#f0faf5",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "2.4rem",
+                      borderRadius: "20px 20px 0 0",
+                    }}
+                  >
+                    {icon}
+                  </div>
+                )}
+                <div style={{ padding: "20px 24px 28px" }}>
+                  {image && (
+                    <div
+                      style={{
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        background: "#f0faf5",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.4rem",
+                        marginBottom: 12,
+                      }}
+                    >
+                      {icon}
+                    </div>
+                  )}
+                  <h3
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      color: "#0f2318",
+                      marginBottom: 10,
+                    }}
+                  >
+                    {title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "0.82rem",
+                      color: "#5c7a66",
+                      lineHeight: 1.7,
+                      margin: 0,
+                    }}
+                  >
+                    {desc}
+                  </p>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 6,
+                      marginTop: 16,
+                      color: "#0d6b3b",
+                      fontSize: "0.8rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    Learn More →
+                  </div>
                 </div>
               </button>
             ))}
@@ -663,6 +969,10 @@ export default function Home({ onNavigate }: HomeProps) {
         .btn-wa-hover:hover { background: #20bd5c !important; transform: translateY(-2px) !important; }
         .btn-white-hover:hover { background: #f0faf5 !important; transform: translateY(-2px) !important; }
         .service-card-hover:hover { transform: translateY(-8px) !important; box-shadow: 0 20px 60px rgba(13,107,59,0.18) !important; border-color: rgba(13,107,59,0.25) !important; opacity: 1 !important; }
+        .service-card-hover:hover .card-img-zoom { transform: scale(1.06) !important; }
+        div[ref] { scrollbar-width: none; }
+        div[ref]::-webkit-scrollbar { display: none; }
+        .carousel-card:hover { transform: translateY(-4px) !important; box-shadow: 0 10px 32px rgba(13,107,59,0.22) !important; }
       `}</style>
     </div>
   );

@@ -76,7 +76,7 @@ export default function Contact({ onNavigate: _onNavigate }: ContactProps) {
         >
           {/* Address card — clickable */}
           <a
-            href="https://maps.app.goo.gl/T5uNjWaNQMReez3a6?g_st=ac"
+            href="https://www.google.com/maps/place/Dr.+Ritesh+clinic+Homoeopathy+Daltonganj/@24.0318906,84.0850028,17z"
             target="_blank"
             rel="noopener noreferrer"
             data-ocid="contact-card-address"
@@ -282,7 +282,7 @@ export default function Contact({ onNavigate: _onNavigate }: ContactProps) {
           }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.305!2d84.0700!3d24.0300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398db3a0b0000001%3A0x1!2sDaltonganj%2C+Jharkhand+822101!5e0!3m2!1sen!2sin!4v1700000000"
+            src="https://maps.google.com/maps?q=24.0318906,84.0850028&z=17&output=embed"
             style={{
               width: "100%",
               height: 300,

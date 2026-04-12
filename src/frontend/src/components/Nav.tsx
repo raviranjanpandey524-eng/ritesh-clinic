@@ -79,16 +79,23 @@ export default function Nav({ activePage, onNavigate }: NavProps) {
             style={{
               width: 44,
               height: 44,
-              background: "#0d6b3b",
-              borderRadius: 12,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 20,
+              borderRadius: "50%",
+              overflow: "hidden",
+              border: "2px solid rgba(13,107,59,0.25)",
               flexShrink: 0,
+              boxShadow: "0 2px 8px rgba(13,107,59,0.18)",
             }}
           >
-            🌿
+            <img
+              src="/assets/images/doctor-consulting.png"
+              alt="Dr. Ritesh Clinic Logo"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                objectPosition: "top center",
+              }}
+            />
           </div>
           <div style={{ lineHeight: 1.2, textAlign: "left" }}>
             <strong

@@ -5,6 +5,25 @@ interface AboutProps {
   onNavigate: (page: PageId) => void;
 }
 
+const CLINIC_GALLERY = [
+  {
+    src: "/assets/images/clinic-billboard-night.jpg",
+    caption: "Our Clinic on Daltonganj Road",
+  },
+  {
+    src: "/assets/images/clinic-signboard-night.jpg",
+    caption: "Illuminated Clinic Signboard",
+  },
+  {
+    src: "/assets/images/clinic-medicine-shelf.jpg",
+    caption: "Our Medicine Pharmacy",
+  },
+  {
+    src: "/assets/images/clinic-reception.jpg",
+    caption: "Clinic Reception Area",
+  },
+];
+
 export default function About({ onNavigate }: AboutProps) {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -36,12 +55,13 @@ export default function About({ onNavigate }: AboutProps) {
             }}
             className="about-grid"
           >
+            {/* Doctor photos column */}
             <div style={{ position: "relative" }}>
               <div
                 style={{
                   background: "linear-gradient(135deg, #f0faf5, #d4f4e3)",
                   borderRadius: 24,
-                  padding: 40,
+                  padding: 32,
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -49,21 +69,29 @@ export default function About({ onNavigate }: AboutProps) {
                   boxShadow: "0 8px 32px rgba(13,107,59,0.13)",
                 }}
               >
+                {/* Primary doctor photo */}
                 <div
                   style={{
-                    width: 160,
-                    height: 160,
+                    width: 180,
+                    height: 180,
                     borderRadius: "50%",
-                    background: "linear-gradient(135deg, #0d6b3b, #25a563)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "5rem",
-                    marginBottom: 20,
+                    overflow: "hidden",
+                    marginBottom: 14,
+                    border: "4px solid white",
                     boxShadow: "0 12px 36px rgba(13,107,59,0.3)",
                   }}
                 >
-                  👨‍⚕️
+                  <img
+                    src="/assets/images/doctor-desk-white.jpg"
+                    alt="Dr. Ritesh Kumar Tiwary at desk"
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "top center",
+                    }}
+                  />
                 </div>
                 <h3
                   style={{
@@ -82,10 +110,33 @@ export default function About({ onNavigate }: AboutProps) {
                     fontSize: "0.82rem",
                     fontWeight: 600,
                     textAlign: "center",
-                    marginBottom: 20,
+                    marginBottom: 16,
                   }}
                 >
                   Senior Homeopathic Physician
+                </div>
+                {/* Secondary doctor photo */}
+                <div
+                  style={{
+                    width: "100%",
+                    height: 140,
+                    borderRadius: 14,
+                    overflow: "hidden",
+                    marginBottom: 16,
+                    border: "2px solid rgba(13,107,59,0.15)",
+                  }}
+                >
+                  <img
+                    src="/assets/images/doctor-traditional.jpg"
+                    alt="Dr. Ritesh Kumar Tiwary in traditional attire"
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      objectPosition: "top center",
+                    }}
+                  />
                 </div>
                 <div
                   style={{
@@ -307,6 +358,217 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
+      {/* Awards & Achievements */}
+      <section
+        style={{
+          padding: "72px 24px",
+          background: "linear-gradient(160deg, #fdf9f0 0%, #fff8e8 100%)",
+          borderTop: "1px solid rgba(201,168,76,0.2)",
+          borderBottom: "1px solid rgba(201,168,76,0.2)",
+        }}
+        data-ocid="awards-section"
+      >
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#c9a84c",
+              marginBottom: 12,
+            }}
+          >
+            Recognition & Credentials
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.6rem, 2.5vw, 2.1rem)",
+              fontWeight: 700,
+              textAlign: "center",
+              color: "#0f2318",
+              marginBottom: 12,
+            }}
+          >
+            Awards &amp; <span style={{ color: "#c9a84c" }}>Achievements</span>
+          </h2>
+          <div
+            style={{
+              width: 60,
+              height: 3,
+              background: "linear-gradient(90deg, #c9a84c, #e8c96a)",
+              borderRadius: 2,
+              margin: "0 auto 48px",
+            }}
+          />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 28,
+            }}
+            className="awards-grid"
+          >
+            {/* Trophy */}
+            <div
+              className="fade-up-scroll awards-card"
+              style={{
+                background: "white",
+                borderRadius: 20,
+                overflow: "hidden",
+                border: "1px solid rgba(201,168,76,0.25)",
+                boxShadow: "0 4px 20px rgba(201,168,76,0.12)",
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "all 0.5s ease",
+              }}
+            >
+              <div
+                style={{
+                  height: 260,
+                  overflow: "hidden",
+                }}
+              >
+                <img
+                  src="/assets/images/trophy-topper.jpg"
+                  alt="College Topper Trophy — BHMS 2016-17"
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    transition: "transform 0.4s ease",
+                  }}
+                  className="awards-img"
+                />
+              </div>
+              <div style={{ padding: "20px 24px 24px" }}>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                    background: "rgba(201,168,76,0.12)",
+                    border: "1px solid rgba(201,168,76,0.3)",
+                    color: "#a07828",
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    padding: "4px 12px",
+                    borderRadius: 100,
+                    marginBottom: 10,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  🏆 Academic Excellence
+                </div>
+                <h4
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.05rem",
+                    fontWeight: 700,
+                    color: "#0f2318",
+                    marginBottom: 8,
+                  }}
+                >
+                  College Topper — BHMS 2016–17
+                </h4>
+                <p
+                  style={{
+                    fontSize: "0.83rem",
+                    color: "#5c7a66",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  Dr. Tiwary graduated as a college topper in his BHMS batch,
+                  reflecting his deep academic commitment and clinical acumen
+                  from the very beginning of his career.
+                </p>
+              </div>
+            </div>
+
+            {/* Certificates wall */}
+            <div
+              className="fade-up-scroll awards-card"
+              style={{
+                background: "white",
+                borderRadius: 20,
+                overflow: "hidden",
+                border: "1px solid rgba(201,168,76,0.25)",
+                boxShadow: "0 4px 20px rgba(201,168,76,0.12)",
+                opacity: 0,
+                transform: "translateY(20px)",
+                transition: "all 0.5s 0.12s ease",
+              }}
+            >
+              <div style={{ height: 260, overflow: "hidden" }}>
+                <img
+                  src="/assets/images/certificates-wall.jpg"
+                  alt="Dr. Ritesh Tiwary's wall of certificates and credentials"
+                  loading="lazy"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    transition: "transform 0.4s ease",
+                  }}
+                  className="awards-img"
+                />
+              </div>
+              <div style={{ padding: "20px 24px 24px" }}>
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                    background: "rgba(201,168,76,0.12)",
+                    border: "1px solid rgba(201,168,76,0.3)",
+                    color: "#a07828",
+                    fontSize: "0.7rem",
+                    fontWeight: 700,
+                    padding: "4px 12px",
+                    borderRadius: 100,
+                    marginBottom: 10,
+                    letterSpacing: "0.04em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  📜 Certifications
+                </div>
+                <h4
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "1.05rem",
+                    fontWeight: 700,
+                    color: "#0f2318",
+                    marginBottom: 8,
+                  }}
+                >
+                  Degrees, Certifications &amp; Recognitions
+                </h4>
+                <p
+                  style={{
+                    fontSize: "0.83rem",
+                    color: "#5c7a66",
+                    lineHeight: 1.7,
+                    margin: 0,
+                  }}
+                >
+                  A proud display of degrees, continuing medical education
+                  certificates and professional recognitions earned throughout
+                  Dr. Tiwary's distinguished career in homoeopathic medicine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* About Clinic */}
       <section style={{ padding: "80px 24px", background: "#f0faf5" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -453,7 +715,7 @@ export default function About({ onNavigate }: AboutProps) {
                 }}
               >
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.305!2d84.0700!3d24.0300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398db3a0b0000001%3A0x1!2sDaltonganj%2C+Jharkhand+822101!5e0!3m2!1sen!2sin!4v1700000000"
+                  src="https://maps.google.com/maps?q=24.0318906,84.0850028&z=17&output=embed"
                   style={{
                     width: "100%",
                     height: 280,
@@ -503,7 +765,7 @@ export default function About({ onNavigate }: AboutProps) {
                       Palamu, Jharkhand 822101
                     </span>
                     <a
-                      href="https://maps.app.goo.gl/T5uNjWaNQMReez3a6?g_st=ac"
+                      href="https://www.google.com/maps/place/Dr.+Ritesh+clinic+Homoeopathy+Daltonganj/@24.0318906,84.0850028,17z"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -525,12 +787,126 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
+      {/* Clinic Photo Gallery */}
+      <section
+        style={{
+          padding: "72px 24px 80px",
+          background: "white",
+        }}
+        data-ocid="clinic-gallery"
+      >
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "0.75rem",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "#25a563",
+              marginBottom: 12,
+            }}
+          >
+            Our Facility
+          </p>
+          <h2
+            style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(1.6rem, 2.5vw, 2.1rem)",
+              fontWeight: 700,
+              textAlign: "center",
+              color: "#0f2318",
+              marginBottom: 12,
+            }}
+          >
+            Inside <span style={{ color: "#0d6b3b" }}>Our Clinic</span>
+          </h2>
+          <div
+            style={{
+              width: 60,
+              height: 3,
+              background: "linear-gradient(90deg, #0d6b3b, #25a563)",
+              borderRadius: 2,
+              margin: "0 auto 48px",
+            }}
+          />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: 20,
+            }}
+            className="gallery-grid"
+          >
+            {CLINIC_GALLERY.map(({ src, caption }) => (
+              <div
+                key={caption}
+                className="fade-up-scroll gallery-card"
+                style={{
+                  borderRadius: 18,
+                  overflow: "hidden",
+                  position: "relative",
+                  border: "2px solid rgba(13,107,59,0.12)",
+                  boxShadow: "0 4px 20px rgba(13,107,59,0.1)",
+                  opacity: 0,
+                  transform: "translateY(20px)",
+                  transition: "all 0.4s ease",
+                  cursor: "default",
+                }}
+              >
+                <div style={{ height: 220, overflow: "hidden" }}>
+                  <img
+                    src={src}
+                    alt={caption}
+                    loading="lazy"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      transition: "transform 0.5s ease",
+                      display: "block",
+                    }}
+                    className="gallery-img"
+                  />
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    padding: "32px 16px 14px",
+                    background:
+                      "linear-gradient(0deg, rgba(13,107,59,0.88) 0%, transparent 100%)",
+                  }}
+                >
+                  <span
+                    style={{
+                      color: "white",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                      fontFamily: "'Poppins', sans-serif",
+                    }}
+                  >
+                    {caption}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <style>{`
-        @media (max-width: 1024px) { .about-grid, .clinic-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }
+        @media (max-width: 1024px) { .about-grid, .clinic-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .awards-grid, .gallery-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 768px) { .clinic-features-grid { grid-template-columns: 1fr !important; } }
         .fade-up-scroll.visible { opacity: 1 !important; transform: translateY(0) !important; }
         .btn-primary-hover:hover { background: #1a8a4e !important; transform: translateY(-2px) !important; }
         .clinic-feat-hover:hover { transform: translateY(-4px) !important; box-shadow: 0 8px 32px rgba(13,107,59,0.13) !important; }
+        .gallery-card:hover { border-color: rgba(13,107,59,0.3) !important; box-shadow: 0 12px 40px rgba(13,107,59,0.18) !important; }
+        .gallery-card:hover .gallery-img { transform: scale(1.07) !important; }
+        .awards-card:hover { transform: translateY(-6px) !important; box-shadow: 0 12px 40px rgba(201,168,76,0.22) !important; }
+        .awards-card:hover .awards-img { transform: scale(1.05) !important; }
       `}</style>
     </div>
   );
