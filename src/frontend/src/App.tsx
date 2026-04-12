@@ -1,5 +1,5 @@
 <img
-  src="/assets/images/doctor-consulting.png"
+  src="/assets/images/logo.jfif"
   alt="Dr. Ritesh Clinic Logo"
   style={{
     width: "100%",
