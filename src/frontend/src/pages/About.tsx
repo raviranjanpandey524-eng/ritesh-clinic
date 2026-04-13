@@ -82,7 +82,7 @@ export default function About({ onNavigate }: AboutProps) {
                   }}
                 >
                   <img
-                    src="/assets/images/doctor-desk-white.jpg"
+                    src="/assets/images/clinic-medicine-shelf.jpg"
                     alt="Dr. Ritesh Kumar Tiwary at desk"
                     loading="lazy"
                     style={{
@@ -127,7 +127,7 @@ export default function About({ onNavigate }: AboutProps) {
                   }}
                 >
                   <img
-                    src="/assets/images/doctor-traditional.jpg"
+                    src="/assets/images/clinic-medicine-shelf.jpg"
                     alt="Dr. Ritesh Kumar Tiwary in traditional attire"
                     loading="lazy"
                     style={{
@@ -507,7 +507,7 @@ export default function About({ onNavigate }: AboutProps) {
             >
               <div style={{ height: 260, overflow: "hidden" }}>
                 <img
-                  src="/assets/images/certificates-wall.jpg"
+                  src="/assets/images/clinic-reception.jpg"
                   alt="Dr. Ritesh Tiwary's wall of certificates and credentials"
                   loading="lazy"
                   style={{

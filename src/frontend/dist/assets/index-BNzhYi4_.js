@@ -6764,7 +6764,7 @@ function mergeLoginOptions(loginOptions, otherLoginOptions) {
   };
 }
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://identity.internetcomputer.org/";
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
   const config = await loadConfig();
@@ -18885,15 +18885,25 @@ function Nav({ activePage, onNavigate }) {
                         style: {
                           width: 44,
                           height: 44,
-                          background: "#0d6b3b",
-                          borderRadius: 12,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          fontSize: 20,
-                          flexShrink: 0
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                          border: "2px solid rgba(13,107,59,0.25)",
+                          flexShrink: 0,
+                          boxShadow: "0 2px 8px rgba(13,107,59,0.18)"
                         },
-                        children: "🌿"
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "img",
+                          {
+                            src: "/assets/images/doctor-consulting.png",
+                            alt: "Dr. Ritesh Clinic Logo",
+                            style: {
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "top center"
+                            }
+                          }
+                        )
                       }
                     ),
                     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { lineHeight: 1.2, textAlign: "left" }, children: [
@@ -19113,6 +19123,24 @@ function Nav({ activePage, onNavigate }) {
     }
   );
 }
+const CLINIC_GALLERY = [
+  {
+    src: "/assets/images/clinic-billboard-night.jpg",
+    caption: "Our Clinic on Daltonganj Road"
+  },
+  {
+    src: "/assets/images/clinic-signboard-night.jpg",
+    caption: "Illuminated Clinic Signboard"
+  },
+  {
+    src: "/assets/images/clinic-medicine-shelf.jpg",
+    caption: "Our Medicine Pharmacy"
+  },
+  {
+    src: "/assets/images/clinic-reception.jpg",
+    caption: "Clinic Reception Area"
+  }
+];
 function About({ onNavigate }) {
   reactExports.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -19150,7 +19178,7 @@ function About({ onNavigate }) {
                     style: {
                       background: "linear-gradient(135deg, #f0faf5, #d4f4e3)",
                       borderRadius: 24,
-                      padding: 40,
+                      padding: 32,
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
@@ -19162,18 +19190,28 @@ function About({ onNavigate }) {
                         "div",
                         {
                           style: {
-                            width: 160,
-                            height: 160,
+                            width: 180,
+                            height: 180,
                             borderRadius: "50%",
-                            background: "linear-gradient(135deg, #0d6b3b, #25a563)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: "5rem",
-                            marginBottom: 20,
+                            overflow: "hidden",
+                            marginBottom: 14,
+                            border: "4px solid white",
                             boxShadow: "0 12px 36px rgba(13,107,59,0.3)"
                           },
-                          children: "👨‍⚕️"
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "img",
+                            {
+                              src: "/assets/images/doctor-desk-white.jpg",
+                              alt: "Dr. Ritesh Kumar Tiwary at desk",
+                              loading: "lazy",
+                              style: {
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top center"
+                              }
+                            }
+                          )
                         }
                       ),
                       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -19197,9 +19235,36 @@ function About({ onNavigate }) {
                             fontSize: "0.82rem",
                             fontWeight: 600,
                             textAlign: "center",
-                            marginBottom: 20
+                            marginBottom: 16
                           },
                           children: "Senior Homeopathic Physician"
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          style: {
+                            width: "100%",
+                            height: 140,
+                            borderRadius: 14,
+                            overflow: "hidden",
+                            marginBottom: 16,
+                            border: "2px solid rgba(13,107,59,0.15)"
+                          },
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "img",
+                            {
+                              src: "/assets/images/doctor-traditional.jpg",
+                              alt: "Dr. Ritesh Kumar Tiwary in traditional attire",
+                              loading: "lazy",
+                              style: {
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top center"
+                              }
+                            }
+                          )
                         }
                       ),
                       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -19446,6 +19511,250 @@ function About({ onNavigate }) {
         ) })
       }
     ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "section",
+      {
+        style: {
+          padding: "72px 24px",
+          background: "linear-gradient(160deg, #fdf9f0 0%, #fff8e8 100%)",
+          borderTop: "1px solid rgba(201,168,76,0.2)",
+          borderBottom: "1px solid rgba(201,168,76,0.2)"
+        },
+        "data-ocid": "awards-section",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { maxWidth: 1200, margin: "0 auto" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "p",
+            {
+              style: {
+                textAlign: "center",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#c9a84c",
+                marginBottom: 12
+              },
+              children: "Recognition & Credentials"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "h2",
+            {
+              style: {
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(1.6rem, 2.5vw, 2.1rem)",
+                fontWeight: 700,
+                textAlign: "center",
+                color: "#0f2318",
+                marginBottom: 12
+              },
+              children: [
+                "Awards & ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#c9a84c" }, children: "Achievements" })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              style: {
+                width: 60,
+                height: 3,
+                background: "linear-gradient(90deg, #c9a84c, #e8c96a)",
+                borderRadius: 2,
+                margin: "0 auto 48px"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "div",
+            {
+              style: {
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 28
+              },
+              className: "awards-grid",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "div",
+                  {
+                    className: "fade-up-scroll awards-card",
+                    style: {
+                      background: "white",
+                      borderRadius: 20,
+                      overflow: "hidden",
+                      border: "1px solid rgba(201,168,76,0.25)",
+                      boxShadow: "0 4px 20px rgba(201,168,76,0.12)",
+                      opacity: 0,
+                      transform: "translateY(20px)",
+                      transition: "all 0.5s ease"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          style: {
+                            height: 260,
+                            overflow: "hidden"
+                          },
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "img",
+                            {
+                              src: "/assets/images/trophy-topper.jpg",
+                              alt: "College Topper Trophy — BHMS 2016-17",
+                              loading: "lazy",
+                              style: {
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "center",
+                                transition: "transform 0.4s ease"
+                              },
+                              className: "awards-img"
+                            }
+                          )
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "20px 24px 24px" }, children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "div",
+                          {
+                            style: {
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 6,
+                              background: "rgba(201,168,76,0.12)",
+                              border: "1px solid rgba(201,168,76,0.3)",
+                              color: "#a07828",
+                              fontSize: "0.7rem",
+                              fontWeight: 700,
+                              padding: "4px 12px",
+                              borderRadius: 100,
+                              marginBottom: 10,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase"
+                            },
+                            children: "🏆 Academic Excellence"
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "h4",
+                          {
+                            style: {
+                              fontFamily: "'Playfair Display', serif",
+                              fontSize: "1.05rem",
+                              fontWeight: 700,
+                              color: "#0f2318",
+                              marginBottom: 8
+                            },
+                            children: "College Topper — BHMS 2016–17"
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "p",
+                          {
+                            style: {
+                              fontSize: "0.83rem",
+                              color: "#5c7a66",
+                              lineHeight: 1.7,
+                              margin: 0
+                            },
+                            children: "Dr. Tiwary graduated as a college topper in his BHMS batch, reflecting his deep academic commitment and clinical acumen from the very beginning of his career."
+                          }
+                        )
+                      ] })
+                    ]
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "div",
+                  {
+                    className: "fade-up-scroll awards-card",
+                    style: {
+                      background: "white",
+                      borderRadius: 20,
+                      overflow: "hidden",
+                      border: "1px solid rgba(201,168,76,0.25)",
+                      boxShadow: "0 4px 20px rgba(201,168,76,0.12)",
+                      opacity: 0,
+                      transform: "translateY(20px)",
+                      transition: "all 0.5s 0.12s ease"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { height: 260, overflow: "hidden" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "img",
+                        {
+                          src: "/assets/images/certificates-wall.jpg",
+                          alt: "Dr. Ritesh Tiwary's wall of certificates and credentials",
+                          loading: "lazy",
+                          style: {
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: "center",
+                            transition: "transform 0.4s ease"
+                          },
+                          className: "awards-img"
+                        }
+                      ) }),
+                      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "20px 24px 24px" }, children: [
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "div",
+                          {
+                            style: {
+                              display: "inline-flex",
+                              alignItems: "center",
+                              gap: 6,
+                              background: "rgba(201,168,76,0.12)",
+                              border: "1px solid rgba(201,168,76,0.3)",
+                              color: "#a07828",
+                              fontSize: "0.7rem",
+                              fontWeight: 700,
+                              padding: "4px 12px",
+                              borderRadius: 100,
+                              marginBottom: 10,
+                              letterSpacing: "0.04em",
+                              textTransform: "uppercase"
+                            },
+                            children: "📜 Certifications"
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "h4",
+                          {
+                            style: {
+                              fontFamily: "'Playfair Display', serif",
+                              fontSize: "1.05rem",
+                              fontWeight: 700,
+                              color: "#0f2318",
+                              marginBottom: 8
+                            },
+                            children: "Degrees, Certifications & Recognitions"
+                          }
+                        ),
+                        /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "p",
+                          {
+                            style: {
+                              fontSize: "0.83rem",
+                              color: "#5c7a66",
+                              lineHeight: 1.7,
+                              margin: 0
+                            },
+                            children: "A proud display of degrees, continuing medical education certificates and professional recognitions earned throughout Dr. Tiwary's distinguished career in homoeopathic medicine."
+                          }
+                        )
+                      ] })
+                    ]
+                  }
+                )
+              ]
+            }
+          )
+        ] })
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { style: { padding: "80px 24px", background: "#f0faf5" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { maxWidth: 1200, margin: "0 auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "div",
       {
@@ -19599,7 +19908,7 @@ function About({ onNavigate }) {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "iframe",
                   {
-                    src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.305!2d84.0700!3d24.0300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398db3a0b0000001%3A0x1!2sDaltonganj%2C+Jharkhand+822101!5e0!3m2!1sen!2sin!4v1700000000",
+                    src: "https://maps.google.com/maps?q=24.0318906,84.0850028&z=17&output=embed",
                     style: {
                       width: "100%",
                       height: 280,
@@ -19662,7 +19971,7 @@ function About({ onNavigate }) {
                         /* @__PURE__ */ jsxRuntimeExports.jsx(
                           "a",
                           {
-                            href: "https://maps.app.goo.gl/T5uNjWaNQMReez3a6?g_st=ac",
+                            href: "https://www.google.com/maps/place/Dr.+Ritesh+clinic+Homoeopathy+Daltonganj/@24.0318906,84.0850028,17z",
                             target: "_blank",
                             rel: "noopener noreferrer",
                             style: {
@@ -19686,12 +19995,144 @@ function About({ onNavigate }) {
         ]
       }
     ) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "section",
+      {
+        style: {
+          padding: "72px 24px 80px",
+          background: "white"
+        },
+        "data-ocid": "clinic-gallery",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { maxWidth: 1200, margin: "0 auto" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "p",
+            {
+              style: {
+                textAlign: "center",
+                fontSize: "0.75rem",
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#25a563",
+                marginBottom: 12
+              },
+              children: "Our Facility"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "h2",
+            {
+              style: {
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(1.6rem, 2.5vw, 2.1rem)",
+                fontWeight: 700,
+                textAlign: "center",
+                color: "#0f2318",
+                marginBottom: 12
+              },
+              children: [
+                "Inside ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#0d6b3b" }, children: "Our Clinic" })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              style: {
+                width: 60,
+                height: 3,
+                background: "linear-gradient(90deg, #0d6b3b, #25a563)",
+                borderRadius: 2,
+                margin: "0 auto 48px"
+              }
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "div",
+            {
+              style: {
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 20
+              },
+              className: "gallery-grid",
+              children: CLINIC_GALLERY.map(({ src, caption }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "div",
+                {
+                  className: "fade-up-scroll gallery-card",
+                  style: {
+                    borderRadius: 18,
+                    overflow: "hidden",
+                    position: "relative",
+                    border: "2px solid rgba(13,107,59,0.12)",
+                    boxShadow: "0 4px 20px rgba(13,107,59,0.1)",
+                    opacity: 0,
+                    transform: "translateY(20px)",
+                    transition: "all 0.4s ease",
+                    cursor: "default"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { height: 220, overflow: "hidden" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src,
+                        alt: caption,
+                        loading: "lazy",
+                        style: {
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          transition: "transform 0.5s ease",
+                          display: "block"
+                        },
+                        className: "gallery-img"
+                      }
+                    ) }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        style: {
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          padding: "32px 16px 14px",
+                          background: "linear-gradient(0deg, rgba(13,107,59,0.88) 0%, transparent 100%)"
+                        },
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "span",
+                          {
+                            style: {
+                              color: "white",
+                              fontSize: "0.82rem",
+                              fontWeight: 600,
+                              fontFamily: "'Poppins', sans-serif"
+                            },
+                            children: caption
+                          }
+                        )
+                      }
+                    )
+                  ]
+                },
+                caption
+              ))
+            }
+          )
+        ] })
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-        @media (max-width: 1024px) { .about-grid, .clinic-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }
+        @media (max-width: 1024px) { .about-grid, .clinic-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .awards-grid, .gallery-grid { grid-template-columns: 1fr !important; } }
         @media (max-width: 768px) { .clinic-features-grid { grid-template-columns: 1fr !important; } }
         .fade-up-scroll.visible { opacity: 1 !important; transform: translateY(0) !important; }
         .btn-primary-hover:hover { background: #1a8a4e !important; transform: translateY(-2px) !important; }
         .clinic-feat-hover:hover { transform: translateY(-4px) !important; box-shadow: 0 8px 32px rgba(13,107,59,0.13) !important; }
+        .gallery-card:hover { border-color: rgba(13,107,59,0.3) !important; box-shadow: 0 12px 40px rgba(13,107,59,0.18) !important; }
+        .gallery-card:hover .gallery-img { transform: scale(1.07) !important; }
+        .awards-card:hover { transform: translateY(-6px) !important; box-shadow: 0 12px 40px rgba(201,168,76,0.22) !important; }
+        .awards-card:hover .awards-img { transform: scale(1.05) !important; }
       ` })
   ] });
 }
@@ -20820,7 +21261,7 @@ function Contact({ onNavigate: _onNavigate }) {
                 /* @__PURE__ */ jsxRuntimeExports.jsxs(
                   "a",
                   {
-                    href: "https://maps.app.goo.gl/T5uNjWaNQMReez3a6?g_st=ac",
+                    href: "https://www.google.com/maps/place/Dr.+Ritesh+clinic+Homoeopathy+Daltonganj/@24.0318906,84.0850028,17z",
                     target: "_blank",
                     rel: "noopener noreferrer",
                     "data-ocid": "contact-card-address",
@@ -21063,7 +21504,7 @@ function Contact({ onNavigate: _onNavigate }) {
               children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "iframe",
                 {
-                  src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3653.305!2d84.0700!3d24.0300!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398db3a0b0000001%3A0x1!2sDaltonganj%2C+Jharkhand+822101!5e0!3m2!1sen!2sin!4v1700000000",
+                  src: "https://maps.google.com/maps?q=24.0318906,84.0850028&z=17&output=embed",
                   style: {
                     width: "100%",
                     height: 300,
@@ -21173,7 +21614,8 @@ const SERVICES_PREVIEW = [
   {
     icon: "💇",
     title: "Hair Problems",
-    desc: "Hair fall, alopecia, dandruff — natural regrowth therapy."
+    desc: "Hair fall, alopecia, dandruff — natural regrowth therapy.",
+    image: "/assets/images/hairfall-flyer.jpg"
   },
   {
     icon: "🤧",
@@ -21188,13 +21630,23 @@ const SERVICES_PREVIEW = [
   {
     icon: "👶",
     title: "Child Care",
-    desc: "Safe, gentle treatment for children of all ages."
+    desc: "Safe, gentle treatment for children of all ages.",
+    image: "/assets/images/pediatric-flyer.png"
   },
   {
     icon: "🩺",
     title: "Chronic Diseases",
-    desc: "Diabetes, thyroid, arthritis — holistic management."
+    desc: "Diabetes, thyroid, arthritis — holistic management.",
+    image: "/assets/images/diabetes-flyer.jpg"
   }
+];
+const CAROUSEL_ITEMS = [
+  { src: "/assets/images/hairfall-flyer.jpg", label: "Hair Fall Treatment" },
+  { src: "/assets/images/diabetes-flyer.jpg", label: "Diabetes Management" },
+  { src: "/assets/images/piles-flyer.png", label: "Piles & Fistula Care" },
+  { src: "/assets/images/piles2-flyer.jpg", label: "Anorectal Disorders" },
+  { src: "/assets/images/joint-pain-flyer.png", label: "Joint Pain Relief" },
+  { src: "/assets/images/pediatric-flyer.png", label: "Paediatric Care" }
 ];
 function useFadeUpObserver() {
   reactExports.useEffect(() => {
@@ -21213,6 +21665,44 @@ function useFadeUpObserver() {
 }
 function Home({ onNavigate }) {
   useFadeUpObserver();
+  const carouselRef = reactExports.useRef(null);
+  reactExports.useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+    let frame;
+    let paused = false;
+    const scroll = () => {
+      if (!paused) {
+        el.scrollLeft += 0.6;
+        if (el.scrollLeft >= el.scrollWidth - el.clientWidth - 2) {
+          el.scrollLeft = 0;
+        }
+      }
+      frame = requestAnimationFrame(scroll);
+    };
+    frame = requestAnimationFrame(scroll);
+    el.addEventListener("mouseenter", () => {
+      paused = true;
+    });
+    el.addEventListener("mouseleave", () => {
+      paused = false;
+    });
+    el.addEventListener(
+      "touchstart",
+      () => {
+        paused = true;
+      },
+      { passive: true }
+    );
+    el.addEventListener(
+      "touchend",
+      () => {
+        paused = false;
+      },
+      { passive: true }
+    );
+    return () => cancelAnimationFrame(frame);
+  }, []);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
       "section",
@@ -21481,18 +21971,28 @@ function Home({ onNavigate }) {
                         "div",
                         {
                           style: {
-                            width: 120,
-                            height: 120,
+                            width: 140,
+                            height: 140,
                             borderRadius: "50%",
-                            background: "linear-gradient(135deg, #0d6b3b, #25a563)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            fontSize: "3rem",
+                            overflow: "hidden",
                             margin: "0 auto 20px",
+                            border: "4px solid #f0faf5",
                             boxShadow: "0 8px 24px rgba(13,107,59,0.25)"
                           },
-                          children: "👨‍⚕️"
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "img",
+                            {
+                              src: "/assets/images/doctor-traditional.jpg",
+                              alt: "Dr. Ritesh Kumar Tiwary",
+                              loading: "lazy",
+                              style: {
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                objectPosition: "top center"
+                              }
+                            }
+                          )
                         }
                       ),
                       /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -21598,6 +22098,234 @@ function Home({ onNavigate }) {
         ]
       }
     ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        style: {
+          width: "100%",
+          overflow: "hidden",
+          lineHeight: 0,
+          borderTop: "3px solid #c9a84c",
+          borderBottom: "3px solid #0d6b3b"
+        },
+        "data-ocid": "hindi-banner",
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src: "/assets/images/hindi-banner.jpg",
+            alt: "डॉ. रितेश होम्योपैथिक क्लिनिक — दालतोनगंज",
+            loading: "lazy",
+            style: {
+              width: "100%",
+              maxHeight: 220,
+              objectFit: "cover",
+              objectPosition: "center 30%",
+              display: "block"
+            }
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "section",
+      {
+        style: {
+          padding: "72px 0 80px",
+          background: "linear-gradient(160deg, #f7fdf9 0%, #e8f7f0 100%)",
+          overflow: "hidden"
+        },
+        "data-ocid": "conditions-carousel",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { maxWidth: 1200, margin: "0 auto", padding: "0 24px" }, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "p",
+              {
+                style: {
+                  textAlign: "center",
+                  fontSize: "0.75rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  color: "#25a563",
+                  marginBottom: 12
+                },
+                children: "Proven Results"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              "h2",
+              {
+                style: {
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(1.7rem, 3vw, 2.4rem)",
+                  fontWeight: 700,
+                  textAlign: "center",
+                  color: "#0f2318",
+                  marginBottom: 8
+                },
+                children: [
+                  "Conditions We",
+                  " ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#0d6b3b" }, children: "Treat Successfully" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                style: {
+                  width: 60,
+                  height: 3,
+                  background: "linear-gradient(90deg, #0d6b3b, #25a563)",
+                  borderRadius: 2,
+                  margin: "0 auto 40px"
+                }
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { position: "relative" }, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                style: {
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: 80,
+                  background: "linear-gradient(90deg, #f0faf5, transparent)",
+                  zIndex: 2,
+                  pointerEvents: "none"
+                }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                style: {
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                  width: 80,
+                  background: "linear-gradient(270deg, #f0faf5, transparent)",
+                  zIndex: 2,
+                  pointerEvents: "none"
+                }
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                ref: carouselRef,
+                style: {
+                  display: "flex",
+                  gap: 20,
+                  overflowX: "auto",
+                  scrollbarWidth: "none",
+                  padding: "12px 80px 20px",
+                  cursor: "grab"
+                },
+                children: [
+                  ...CAROUSEL_ITEMS.map((item) => ({
+                    ...item,
+                    uid: `a-${item.label}`
+                  })),
+                  ...CAROUSEL_ITEMS.map((item) => ({
+                    ...item,
+                    uid: `b-${item.label}`
+                  }))
+                ].map(({ src, label, uid }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "div",
+                  {
+                    style: {
+                      flex: "0 0 200px",
+                      height: 280,
+                      borderRadius: 16,
+                      overflow: "hidden",
+                      boxShadow: "0 4px 20px rgba(13,107,59,0.15)",
+                      border: "2px solid rgba(13,107,59,0.12)",
+                      position: "relative",
+                      transition: "transform 0.3s, box-shadow 0.3s"
+                    },
+                    className: "carousel-card",
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "img",
+                        {
+                          src,
+                          alt: label,
+                          loading: "lazy",
+                          style: {
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            display: "block"
+                          }
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          style: {
+                            position: "absolute",
+                            bottom: 0,
+                            left: 0,
+                            right: 0,
+                            padding: "28px 12px 12px",
+                            background: "linear-gradient(0deg, rgba(13,107,59,0.85) 0%, transparent 100%)"
+                          },
+                          children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                            "span",
+                            {
+                              style: {
+                                color: "white",
+                                fontSize: "0.78rem",
+                                fontWeight: 700,
+                                fontFamily: "'Poppins', sans-serif",
+                                textAlign: "center",
+                                display: "block"
+                              },
+                              children: label
+                            }
+                          )
+                        }
+                      )
+                    ]
+                  },
+                  uid
+                ))
+              }
+            )
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { textAlign: "center", marginTop: 28 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              type: "button",
+              onClick: () => onNavigate("services"),
+              "data-ocid": "carousel-view-all",
+              className: "btn-primary-hover",
+              style: {
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "#0d6b3b",
+                color: "white",
+                padding: "12px 28px",
+                borderRadius: 12,
+                fontWeight: 600,
+                fontSize: "0.9rem",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Poppins', sans-serif",
+                boxShadow: "0 4px 20px rgba(13,107,59,0.3)"
+              },
+              children: "View All Treatments →"
+            }
+          ) })
+        ]
+      }
+    ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { style: { padding: "80px 24px", background: "white" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { maxWidth: 1200, margin: "0 auto" }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "p",
@@ -21666,7 +22394,7 @@ function Home({ onNavigate }) {
             gap: 24
           },
           className: "services-preview-grid",
-          children: SERVICES_PREVIEW.map(({ icon, title, desc }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          children: SERVICES_PREVIEW.map(({ icon, title, desc, image }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "button",
             {
               type: "button",
@@ -21675,7 +22403,7 @@ function Home({ onNavigate }) {
               style: {
                 background: "white",
                 borderRadius: 20,
-                padding: "32px 24px",
+                padding: 0,
                 border: "1px solid rgba(13,107,59,0.12)",
                 boxShadow: "0 2px 16px rgba(13,107,59,0.08)",
                 cursor: "pointer",
@@ -21684,65 +22412,107 @@ function Home({ onNavigate }) {
                 opacity: 0,
                 transform: "translateY(20px)",
                 textAlign: "left",
-                fontFamily: "'Poppins', sans-serif"
+                fontFamily: "'Poppins', sans-serif",
+                overflow: "hidden"
               },
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                image ? /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "div",
                   {
                     style: {
-                      width: 60,
-                      height: 60,
-                      borderRadius: 16,
+                      height: 160,
+                      overflow: "hidden",
+                      borderRadius: "20px 20px 0 0"
+                    },
+                    children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "img",
+                      {
+                        src: image,
+                        alt: title,
+                        loading: "lazy",
+                        style: {
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                          transition: "transform 0.4s ease"
+                        },
+                        className: "card-img-zoom"
+                      }
+                    )
+                  }
+                ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "div",
+                  {
+                    style: {
+                      height: 80,
                       background: "#f0faf5",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "1.8rem",
-                      marginBottom: 20
+                      fontSize: "2.4rem",
+                      borderRadius: "20px 20px 0 0"
                     },
                     children: icon
                   }
                 ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "h3",
-                  {
-                    style: {
-                      fontSize: "1rem",
-                      fontWeight: 700,
-                      color: "#0f2318",
-                      marginBottom: 10
-                    },
-                    children: title
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "p",
-                  {
-                    style: {
-                      fontSize: "0.82rem",
-                      color: "#5c7a66",
-                      lineHeight: 1.7,
-                      margin: 0
-                    },
-                    children: desc
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "div",
-                  {
-                    style: {
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 6,
-                      marginTop: 16,
-                      color: "#0d6b3b",
-                      fontSize: "0.8rem",
-                      fontWeight: 600
-                    },
-                    children: "Learn More →"
-                  }
-                )
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "20px 24px 28px" }, children: [
+                  image && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "div",
+                    {
+                      style: {
+                        width: 44,
+                        height: 44,
+                        borderRadius: 12,
+                        background: "#f0faf5",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "1.4rem",
+                        marginBottom: 12
+                      },
+                      children: icon
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "h3",
+                    {
+                      style: {
+                        fontSize: "1rem",
+                        fontWeight: 700,
+                        color: "#0f2318",
+                        marginBottom: 10
+                      },
+                      children: title
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "p",
+                    {
+                      style: {
+                        fontSize: "0.82rem",
+                        color: "#5c7a66",
+                        lineHeight: 1.7,
+                        margin: 0
+                      },
+                      children: desc
+                    }
+                  ),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "div",
+                    {
+                      style: {
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        marginTop: 16,
+                        color: "#0d6b3b",
+                        fontSize: "0.8rem",
+                        fontWeight: 600
+                      },
+                      children: "Learn More →"
+                    }
+                  )
+                ] })
               ]
             },
             title
@@ -21880,6 +22650,10 @@ function Home({ onNavigate }) {
         .btn-wa-hover:hover { background: #20bd5c !important; transform: translateY(-2px) !important; }
         .btn-white-hover:hover { background: #f0faf5 !important; transform: translateY(-2px) !important; }
         .service-card-hover:hover { transform: translateY(-8px) !important; box-shadow: 0 20px 60px rgba(13,107,59,0.18) !important; border-color: rgba(13,107,59,0.25) !important; opacity: 1 !important; }
+        .service-card-hover:hover .card-img-zoom { transform: scale(1.06) !important; }
+        div[ref] { scrollbar-width: none; }
+        div[ref]::-webkit-scrollbar { display: none; }
+        .carousel-card:hover { transform: translateY(-4px) !important; box-shadow: 0 10px 32px rgba(13,107,59,0.22) !important; }
       ` })
   ] });
 }
@@ -22113,7 +22887,8 @@ const SERVICES = [
       "Vitiligo (White Patches)",
       "Seborrheic Dermatitis",
       "Lichen Planus"
-    ]
+    ],
+    image: "/assets/images/piles-flyer.png"
   },
   {
     key: "hair",
@@ -22129,7 +22904,8 @@ const SERVICES = [
       "Dry, Brittle & Damaged Hair",
       "Scalp Psoriasis",
       "Post-Pregnancy Hair Loss"
-    ]
+    ],
+    image: "/assets/images/hairfall-flyer.jpg"
   },
   {
     key: "allergy",
@@ -22177,7 +22953,8 @@ const SERVICES = [
       "Ear Infections (Otitis Media)",
       "Digestive Issues & Food Aversion",
       "Childhood Eczema & Skin Problems"
-    ]
+    ],
+    image: "/assets/images/pediatric-flyer.png"
   },
   {
     key: "chronic",
@@ -22193,7 +22970,42 @@ const SERVICES = [
       "Gastric Ulcer & Acidity",
       "Kidney Stones (Prevention & Management)",
       "Fatty Liver & Digestive Disorders"
-    ]
+    ],
+    image: "/assets/images/diabetes-flyer.jpg"
+  },
+  {
+    key: "joint",
+    icon: "🦴",
+    title: "Joint & Bone Pain",
+    desc: "Effective natural management of joint pain, arthritis, sciatica and musculoskeletal disorders — restoring mobility without painkillers or surgery.",
+    points: [
+      "Rheumatoid Arthritis",
+      "Osteoarthritis (Knee, Hip, Shoulder)",
+      "Sciatica & Lower Back Pain",
+      "Gout & Uric Acid Disorders",
+      "Cervical & Lumbar Spondylosis",
+      "Fibromyalgia",
+      "Frozen Shoulder",
+      "Sports Injuries (Chronic)"
+    ],
+    image: "/assets/images/joint-pain-flyer.png"
+  },
+  {
+    key: "piles",
+    icon: "🩹",
+    title: "Piles & Fistula",
+    desc: "Painless, non-surgical homeopathic treatment for haemorrhoids, anal fistula and related anorectal conditions with long-term relief.",
+    points: [
+      "Bleeding Piles (Grade 1–3)",
+      "Non-Bleeding (Dry) Piles",
+      "Anal Fistula (Fissure-in-Ano)",
+      "Anal Fissure (Painful)",
+      "Rectal Prolapse (early stage)",
+      "Itching & Burning in Anal Region",
+      "Post-Surgical Recurrence of Piles",
+      "Constipation-related Anorectal Issues"
+    ],
+    image: "/assets/images/piles2-flyer.jpg"
   }
 ];
 function Services({ onNavigate }) {
@@ -22291,7 +23103,7 @@ function Services({ onNavigate }) {
                 gap: 24
               },
               className: "services-grid",
-              children: SERVICES.map(({ key, icon, title, desc }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+              children: SERVICES.map(({ key, icon, title, desc, image }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
                 "button",
                 {
                   type: "button",
@@ -22301,7 +23113,7 @@ function Services({ onNavigate }) {
                   style: {
                     background: "white",
                     borderRadius: 20,
-                    padding: "32px 24px",
+                    padding: 0,
                     border: "1px solid rgba(13,107,59,0.12)",
                     boxShadow: "0 2px 16px rgba(13,107,59,0.08)",
                     cursor: "pointer",
@@ -22315,62 +23127,103 @@ function Services({ onNavigate }) {
                     overflow: "hidden"
                   },
                   children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    image ? /* @__PURE__ */ jsxRuntimeExports.jsx(
                       "div",
                       {
                         style: {
-                          width: 60,
-                          height: 60,
-                          borderRadius: 16,
+                          height: 160,
+                          overflow: "hidden",
+                          borderRadius: "20px 20px 0 0"
+                        },
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "img",
+                          {
+                            src: image,
+                            alt: title,
+                            loading: "lazy",
+                            style: {
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              transition: "transform 0.4s ease"
+                            },
+                            className: "svc-img-zoom"
+                          }
+                        )
+                      }
+                    ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        style: {
+                          height: 80,
                           background: "#f0faf5",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
-                          fontSize: "1.8rem",
-                          marginBottom: 20
+                          fontSize: "2.4rem",
+                          borderRadius: "20px 20px 0 0"
                         },
                         children: icon
                       }
                     ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "h3",
-                      {
-                        style: {
-                          fontSize: "1rem",
-                          fontWeight: 700,
-                          color: "#0f2318",
-                          marginBottom: 10
-                        },
-                        children: title
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "p",
-                      {
-                        style: {
-                          fontSize: "0.82rem",
-                          color: "#5c7a66",
-                          lineHeight: 1.7,
-                          margin: 0
-                        },
-                        children: desc
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "div",
-                      {
-                        style: {
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: 6,
-                          marginTop: 16,
-                          color: "#0d6b3b",
-                          fontSize: "0.8rem",
-                          fontWeight: 600
-                        },
-                        children: "Learn More →"
-                      }
-                    )
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "20px 24px 28px" }, children: [
+                      image && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          style: {
+                            width: 44,
+                            height: 44,
+                            borderRadius: 12,
+                            background: "#f0faf5",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "1.4rem",
+                            marginBottom: 12
+                          },
+                          children: icon
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "h3",
+                        {
+                          style: {
+                            fontSize: "1rem",
+                            fontWeight: 700,
+                            color: "#0f2318",
+                            marginBottom: 10
+                          },
+                          children: title
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "p",
+                        {
+                          style: {
+                            fontSize: "0.82rem",
+                            color: "#5c7a66",
+                            lineHeight: 1.7,
+                            margin: 0
+                          },
+                          children: desc
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "div",
+                        {
+                          style: {
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: 6,
+                            marginTop: 16,
+                            color: "#0d6b3b",
+                            fontSize: "0.8rem",
+                            fontWeight: 600
+                          },
+                          children: "Learn More →"
+                        }
+                      )
+                    ] })
                   ]
                 },
                 key
@@ -22412,7 +23265,7 @@ function Services({ onNavigate }) {
             style: {
               background: "white",
               borderRadius: 24,
-              padding: "36px 32px",
+              padding: 0,
               maxWidth: 520,
               width: "100%",
               maxHeight: "85vh",
@@ -22420,115 +23273,149 @@ function Services({ onNavigate }) {
               position: "relative"
             },
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => setActiveModal(null),
-                  "aria-label": "Close",
-                  style: {
-                    position: "absolute",
-                    top: 16,
-                    right: 16,
-                    background: "#f0faf5",
-                    border: "none",
-                    width: 34,
-                    height: 34,
-                    borderRadius: "50%",
-                    cursor: "pointer",
-                    fontSize: "1rem",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center"
-                  },
-                  children: "✕"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "span",
-                {
-                  style: { fontSize: "2.4rem", marginBottom: 14, display: "block" },
-                  children: activeService.icon
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "h2",
+              activeService.image && /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "div",
                 {
                   style: {
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: "1.5rem",
-                    color: "#0f2318",
-                    marginBottom: 12
+                    height: 180,
+                    overflow: "hidden",
+                    borderRadius: "24px 24px 0 0"
                   },
-                  children: activeService.title
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "p",
-                {
-                  style: {
-                    color: "#5c7a66",
-                    fontSize: "0.92rem",
-                    lineHeight: 1.9,
-                    marginBottom: 18
-                  },
-                  children: activeService.desc
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: "0 0 24px" }, children: activeService.points.map((pt) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "li",
-                {
-                  style: {
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: 10,
-                    padding: "9px 14px",
-                    background: "#f0faf5",
-                    borderRadius: 10,
-                    marginBottom: 8,
-                    fontSize: "0.85rem",
-                    color: "#2d4a38"
-                  },
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "span",
-                      {
-                        style: { color: "#0d6b3b", fontWeight: 700, flexShrink: 0 },
-                        children: "✓"
+                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "img",
+                    {
+                      src: activeService.image,
+                      alt: activeService.title,
+                      style: {
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover"
                       }
-                    ),
-                    pt
-                  ]
-                },
-                pt
-              )) }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => {
-                    setActiveModal(null);
-                    onNavigate("appointment");
-                  },
-                  "data-ocid": "service-modal-book-btn",
-                  className: "btn-primary-hover",
-                  style: {
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 8,
-                    background: "#0d6b3b",
-                    color: "white",
-                    padding: "12px 24px",
-                    borderRadius: 12,
-                    fontWeight: 600,
-                    fontSize: "0.88rem",
-                    border: "none",
-                    cursor: "pointer",
-                    fontFamily: "'Poppins', sans-serif"
-                  },
-                  children: "📅 Book Consultation for This"
+                    }
+                  )
                 }
-              )
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "28px 32px 36px" }, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => setActiveModal(null),
+                    "aria-label": "Close",
+                    style: {
+                      position: "absolute",
+                      top: activeService.image ? 148 : 16,
+                      right: 16,
+                      background: "white",
+                      border: "none",
+                      width: 34,
+                      height: 34,
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                      fontSize: "1rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+                      zIndex: 1
+                    },
+                    children: "✕"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "span",
+                  {
+                    style: {
+                      fontSize: "2.4rem",
+                      marginBottom: 14,
+                      display: "block"
+                    },
+                    children: activeService.icon
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "h2",
+                  {
+                    style: {
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "1.5rem",
+                      color: "#0f2318",
+                      marginBottom: 12
+                    },
+                    children: activeService.title
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "p",
+                  {
+                    style: {
+                      color: "#5c7a66",
+                      fontSize: "0.92rem",
+                      lineHeight: 1.9,
+                      marginBottom: 18
+                    },
+                    children: activeService.desc
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: "0 0 24px" }, children: activeService.points.map((pt) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                  "li",
+                  {
+                    style: {
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: 10,
+                      padding: "9px 14px",
+                      background: "#f0faf5",
+                      borderRadius: 10,
+                      marginBottom: 8,
+                      fontSize: "0.85rem",
+                      color: "#2d4a38"
+                    },
+                    children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "span",
+                        {
+                          style: {
+                            color: "#0d6b3b",
+                            fontWeight: 700,
+                            flexShrink: 0
+                          },
+                          children: "✓"
+                        }
+                      ),
+                      pt
+                    ]
+                  },
+                  pt
+                )) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => {
+                      setActiveModal(null);
+                      onNavigate("appointment");
+                    },
+                    "data-ocid": "service-modal-book-btn",
+                    className: "btn-primary-hover",
+                    style: {
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: 8,
+                      background: "#0d6b3b",
+                      color: "white",
+                      padding: "12px 24px",
+                      borderRadius: 12,
+                      fontWeight: 600,
+                      fontSize: "0.88rem",
+                      border: "none",
+                      cursor: "pointer",
+                      fontFamily: "'Poppins', sans-serif"
+                    },
+                    children: "📅 Book Consultation for This"
+                  }
+                )
+              ] })
             ]
           }
         )
@@ -22539,6 +23426,7 @@ function Services({ onNavigate }) {
         @media (max-width: 768px) { .services-grid { grid-template-columns: 1fr !important; } }
         .fade-up-scroll.visible { opacity: 1 !important; transform: translateY(0) !important; }
         .service-card-hover:hover { transform: translateY(-8px) !important; box-shadow: 0 20px 60px rgba(13,107,59,0.18) !important; }
+        .service-card-hover:hover .svc-img-zoom { transform: scale(1.06) !important; }
         .btn-primary-hover:hover { background: #1a8a4e !important; transform: translateY(-2px) !important; }
       ` })
   ] });

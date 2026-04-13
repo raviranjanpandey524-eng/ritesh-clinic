@@ -376,7 +376,7 @@ export default function Home({ onNavigate }: HomeProps) {
                 }}
               >
                 <img
-                  src="/assets/images/doctor-traditional.jpg"
+                  src="/assets/images/clinic-medicine-shelf.jpg"
                   alt="Dr. Ritesh Kumar Tiwary"
                   loading="lazy"
                   style={{

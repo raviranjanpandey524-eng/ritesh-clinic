@@ -1,13 +1,4 @@
-<img
-  src="/assets/images/logo.jfif"
-  alt="Dr. Ritesh Clinic Logo"
-  style={{
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition: "top center",
-  }}
-/>import { useState } from "react";
+import { useState } from "react";
 import Breadcrumb from "./components/Breadcrumb";
 import FloatingActions from "./components/FloatingActions";
 import Footer from "./components/Footer";
