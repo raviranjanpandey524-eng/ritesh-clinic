@@ -474,30 +474,6 @@ export default function Home({ onNavigate }: HomeProps) {
         </div>
       </section>
 
-      {/* Hindi Banner */}
-      <div
-        style={{
-          width: "100%",
-          overflow: "hidden",
-          lineHeight: 0,
-          borderTop: "3px solid #c9a84c",
-          borderBottom: "3px solid #0d6b3b",
-        }}
-        data-ocid="hindi-banner"
-      >
-        <img
-          src="/assets/images/hindi-banner.jpg"
-          alt="डॉ. रितेश होम्योपैथिक क्लिनिक — दालतोनगंज"
-          loading="lazy"
-          style={{
-            width: "100%",
-            maxHeight: 220,
-            objectFit: "cover",
-            objectPosition: "center 30%",
-            display: "block",
-          }}
-        />
-      </div>
 
       {/* Conditions Carousel */}
       <section
