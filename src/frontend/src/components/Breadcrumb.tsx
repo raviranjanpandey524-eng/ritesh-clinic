@@ -1,20 +1,10 @@
-import type { PageId } from "../App";
+import { PAGE_LABELS } from "../app/pages";
+import type { PageId } from "../app/pageTypes";
 
 interface BreadcrumbProps {
   activePage: PageId;
   onNavigate: (page: PageId) => void;
 }
-
-const PAGE_LABELS: Record<PageId, string> = {
-  home: "Home",
-  about: "About Doctor",
-  services: "Services",
-  why: "Why Choose Us",
-  reviews: "Patient Reviews",
-  blog: "Blog",
-  appointment: "Book Appointment",
-  contact: "Contact",
-};
 
 export default function Breadcrumb({
   activePage,

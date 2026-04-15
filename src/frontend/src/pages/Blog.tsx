@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { PageId } from "../App";
+import type { PageId } from "../app/pageTypes";
 
 interface BlogProps {
   onNavigate: (page: PageId) => void;

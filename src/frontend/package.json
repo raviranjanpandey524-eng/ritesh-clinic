@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && pnpm copy:env",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "start": "pnpm preview",
     "copy:env": "node -e \"const fs = require('fs'); if (fs.existsSync('env.json')) fs.copyFileSync('env.json', 'dist/env.json')\"",
     "typecheck": "tsc --noEmit",
     "check": "biome check src",

@@ -1,4 +1,5 @@
-import type { PageId } from "../App";
+import { PAGE_LABELS } from "../app/pages";
+import type { PageId } from "../app/pageTypes";
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
@@ -9,14 +10,14 @@ const WA_MSG = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
 const currentYear = new Date().getFullYear();
 
 export default function Footer({ onNavigate }: FooterProps) {
-  const quickLinks: { label: string; page: PageId }[] = [
-    { label: "About Doctor", page: "about" },
-    { label: "Services", page: "services" },
-    { label: "Why Choose Us", page: "why" },
-    { label: "Patient Reviews", page: "reviews" },
-    { label: "Blog", page: "blog" },
-    { label: "Book Appointment", page: "appointment" },
-    { label: "Contact Us", page: "contact" },
+  const quickLinks: PageId[] = [
+    "about",
+    "services",
+    "why",
+    "reviews",
+    "blog",
+    "appointment",
+    "contact",
   ];
 
   const services = [
@@ -139,7 +140,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             Quick Links
           </h4>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {quickLinks.map(({ label, page }) => (
+            {quickLinks.map((page) => (
               <li key={page} style={{ marginBottom: 8 }}>
                 <button
                   type="button"
@@ -157,7 +158,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                     transition: "color 0.2s",
                   }}
                 >
-                  {label}
+                  {page === "contact" ? "Contact Us" : PAGE_LABELS[page]}
                 </button>
               </li>
             ))}

@@ -1,59 +1,13 @@
-import { useState } from "react";
+import { PAGE_COMPONENTS, PAGE_ORDER } from "./app/pages";
+import type { PageId } from "./app/pageTypes";
 import Breadcrumb from "./components/Breadcrumb";
 import FloatingActions from "./components/FloatingActions";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import About from "./pages/About";
-import Appointment from "./pages/Appointment";
-import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
-import Home from "./pages/Home";
-import Reviews from "./pages/Reviews";
-import Services from "./pages/Services";
-import Why from "./pages/Why";
-
-export type PageId =
-  | "home"
-  | "about"
-  | "services"
-  | "why"
-  | "reviews"
-  | "blog"
-  | "appointment"
-  | "contact";
-
-const PAGE_COMPONENTS: Record<
-  PageId,
-  React.ComponentType<{ onNavigate: (p: PageId) => void }>
-> = {
-  home: Home,
-  about: About,
-  services: Services,
-  why: Why,
-  reviews: Reviews,
-  blog: Blog,
-  appointment: Appointment,
-  contact: Contact,
-};
-
-const ALL_PAGES: PageId[] = [
-  "home",
-  "about",
-  "services",
-  "why",
-  "reviews",
-  "blog",
-  "appointment",
-  "contact",
-];
+import { usePageNavigation } from "./hooks/usePageNavigation";
 
 export default function App() {
-  const [activePage, setActivePage] = useState<PageId>("home");
-
-  const navigate = (page: PageId) => {
-    setActivePage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { activePage, navigate } = usePageNavigation();
 
   return (
     <div
@@ -67,7 +21,7 @@ export default function App() {
       <Nav activePage={activePage} onNavigate={navigate} />
       <Breadcrumb activePage={activePage} onNavigate={navigate} />
       <main>
-        {ALL_PAGES.map((page) => {
+        {PAGE_ORDER.map((page: PageId) => {
           const Component = PAGE_COMPONENTS[page];
           const isActive = activePage === page;
           return (

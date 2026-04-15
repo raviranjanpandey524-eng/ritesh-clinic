@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { PageId } from "../App";
+import type { PageId } from "../app/pageTypes";
 
 interface HomeProps {
   onNavigate: (page: PageId) => void;
