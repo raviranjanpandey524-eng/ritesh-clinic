@@ -1,4 +1,4 @@
-import type { PageId } from "../App";
+import type { PageId } from "../app/pageTypes";
 
 interface ReviewsProps {
   onNavigate: (page: PageId) => void;

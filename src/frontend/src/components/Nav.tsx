@@ -1,20 +1,11 @@
 import { useEffect, useState } from "react";
-import type { PageId } from "../App";
+import { PRIMARY_NAV_PAGES } from "../app/pages";
+import type { PageId } from "../app/pageTypes";
 
 interface NavProps {
   activePage: PageId;
   onNavigate: (page: PageId) => void;
 }
-
-const NAV_LINKS: { label: string; page: PageId }[] = [
-  { label: "Home", page: "home" },
-  { label: "About Doctor", page: "about" },
-  { label: "Services", page: "services" },
-  { label: "Why Us", page: "why" },
-  { label: "Reviews", page: "reviews" },
-  { label: "Blog", page: "blog" },
-  { label: "Contact", page: "contact" },
-];
 
 export default function Nav({ activePage, onNavigate }: NavProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -125,7 +116,7 @@ export default function Nav({ activePage, onNavigate }: NavProps) {
             padding: 0,
           }}
         >
-          {NAV_LINKS.map(({ label, page }) => (
+          {PRIMARY_NAV_PAGES.map(({ label, id: page }) => (
             <li key={page}>
               <button
                 type="button"
@@ -243,17 +234,7 @@ export default function Nav({ activePage, onNavigate }: NavProps) {
           }}
           data-ocid="mobile-menu"
         >
-          {(
-            [
-              { label: "🏠 Home", page: "home" },
-              { label: "👨‍⚕️ About Doctor", page: "about" },
-              { label: "🩺 Services", page: "services" },
-              { label: "⭐ Why Choose Us", page: "why" },
-              { label: "💬 Patient Reviews", page: "reviews" },
-              { label: "📝 Blog", page: "blog" },
-              { label: "📍 Contact", page: "contact" },
-            ] as { label: string; page: PageId }[]
-          ).map(({ label, page }) => (
+          {PRIMARY_NAV_PAGES.map(({ mobileLabel, label, id: page }) => (
             <button
               key={page}
               type="button"
@@ -271,7 +252,7 @@ export default function Nav({ activePage, onNavigate }: NavProps) {
                 fontFamily: "'Poppins', sans-serif",
               }}
             >
-              {label}
+              {mobileLabel ?? label}
             </button>
           ))}
           <button

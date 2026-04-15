@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { PageId } from "../App";
+import type { PageId } from "../app/pageTypes";
 
 interface WhyProps {
   onNavigate: (page: PageId) => void;

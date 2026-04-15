@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { PageId } from "../App";
+import type { PageId } from "../app/pageTypes";
 
 interface AppointmentProps {
   onNavigate: (page: PageId) => void;

@@ -760,7 +760,7 @@ var Removable = (_d = class {
     );
   }
   clearGcTimeout() {
-    if (__privateGet(this, _gcTimeout)) {
+    if (__privateGet(this, _gcTimeout) !== void 0) {
       timeoutManager.clearTimeout(__privateGet(this, _gcTimeout));
       __privateSet(this, _gcTimeout, void 0);
     }
@@ -2500,7 +2500,7 @@ react_production.useSyncExternalStore = function(subscribe, getSnapshot, getServ
 react_production.useTransition = function() {
   return ReactSharedInternals$2.H.useTransition();
 };
-react_production.version = "19.1.5";
+react_production.version = "19.1.6";
 {
   react.exports = react_production;
 }
@@ -2937,7 +2937,7 @@ reactDom_production.useFormState = function(action, initialState, permalink) {
 reactDom_production.useFormStatus = function() {
   return ReactSharedInternals$1.H.useHostTransitionStatus();
 };
-reactDom_production.version = "19.1.5";
+reactDom_production.version = "19.1.6";
 function checkDCE$1() {
   if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") {
     return;
@@ -13917,12 +13917,12 @@ ReactDOMHydrationRoot.prototype.unstable_scheduleHydration = function(target) {
   }
 };
 var isomorphicReactPackageVersion$jscomp$inline_1785 = React.version;
-if ("19.1.5" !== isomorphicReactPackageVersion$jscomp$inline_1785)
+if ("19.1.6" !== isomorphicReactPackageVersion$jscomp$inline_1785)
   throw Error(
     formatProdErrorMessage(
       527,
       isomorphicReactPackageVersion$jscomp$inline_1785,
-      "19.1.5"
+      "19.1.6"
     )
   );
 ReactDOMSharedInternals.findDOMNode = function(componentOrElement) {
@@ -13940,10 +13940,10 @@ ReactDOMSharedInternals.findDOMNode = function(componentOrElement) {
 };
 var internals$jscomp$inline_2256 = {
   bundleType: 0,
-  version: "19.1.5",
+  version: "19.1.6",
   rendererPackageName: "react-dom",
   currentDispatcherRef: ReactSharedInternals,
-  reconcilerVersion: "19.1.5"
+  reconcilerVersion: "19.1.6"
 };
 if ("undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__) {
   var hook$jscomp$inline_2257 = __REACT_DEVTOOLS_GLOBAL_HOOK__;
@@ -14010,7 +14010,7 @@ reactDomClient_production.hydrateRoot = function(container, initialChildren, opt
   listenToAllSupportedEvents(container);
   return new ReactDOMHydrationRoot(initialChildren);
 };
-reactDomClient_production.version = "19.1.5";
+reactDomClient_production.version = "19.1.6";
 function checkDCE() {
   if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === "undefined" || typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== "function") {
     return;
@@ -14027,735 +14027,6 @@ function checkDCE() {
 }
 var clientExports = client.exports;
 const ReactDOM = /* @__PURE__ */ getDefaultExportFromCjs(clientExports);
-const PAGE_LABELS = {
-  home: "Home",
-  about: "About Doctor",
-  services: "Services",
-  why: "Why Choose Us",
-  reviews: "Patient Reviews",
-  blog: "Blog",
-  appointment: "Book Appointment",
-  contact: "Contact"
-};
-function Breadcrumb({
-  activePage,
-  onNavigate
-}) {
-  if (activePage === "home") return null;
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      style: {
-        background: "#f0faf5",
-        borderBottom: "1px solid rgba(13,107,59,0.12)",
-        padding: "10px 24px",
-        display: "flex",
-        alignItems: "center",
-        gap: 8,
-        fontSize: "0.8rem",
-        color: "#5c7a66",
-        position: "sticky",
-        top: 70,
-        zIndex: 99
-      },
-      "data-ocid": "breadcrumb-bar",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => onNavigate("home"),
-            style: {
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              color: "#5c7a66",
-              fontSize: "0.8rem",
-              fontFamily: "'Poppins', sans-serif",
-              padding: 0,
-              textDecoration: "underline"
-            },
-            className: "breadcrumb-home-btn",
-            children: "🏠 Home"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "›" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#0d6b3b", fontWeight: 600 }, children: PAGE_LABELS[activePage] })
-      ]
-    }
-  );
-}
-const WA_NUMBER$4 = "918210485109";
-const CALL_NUMBER$2 = "+916207962161";
-const WA_MSG$3 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
-function FloatingActions() {
-  const [hoveredCall, setHoveredCall] = reactExports.useState(false);
-  const [hoveredWa, setHoveredWa] = reactExports.useState(false);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      style: {
-        position: "fixed",
-        bottom: 28,
-        right: 24,
-        zIndex: 999,
-        display: "flex",
-        flexDirection: "column",
-        gap: 12
-      },
-      "data-ocid": "floating-actions",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { position: "relative" }, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "a",
-            {
-              href: `tel:${CALL_NUMBER$2}`,
-              "aria-label": "Call the clinic",
-              "data-ocid": "fab-call",
-              onMouseEnter: () => setHoveredCall(true),
-              onMouseLeave: () => setHoveredCall(false),
-              style: {
-                width: 56,
-                height: 56,
-                borderRadius: "50%",
-                background: "#4285F4",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.4rem",
-                textDecoration: "none",
-                boxShadow: "0 8px 24px rgba(66,133,244,0.4)",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                transform: hoveredCall ? "scale(1.12) translateY(-2px)" : "scale(1)"
-              },
-              children: "📞"
-            }
-          ),
-          hoveredCall && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "span",
-            {
-              style: {
-                position: "absolute",
-                right: 70,
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.75)",
-                color: "white",
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                padding: "5px 10px",
-                borderRadius: 8,
-                whiteSpace: "nowrap",
-                fontFamily: "'Poppins', sans-serif"
-              },
-              children: "Call Us"
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { position: "relative" }, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "a",
-            {
-              href: `https://wa.me/${WA_NUMBER$4}?text=${WA_MSG$3}`,
-              target: "_blank",
-              rel: "noopener noreferrer",
-              "aria-label": "WhatsApp consultation",
-              "data-ocid": "fab-whatsapp",
-              onMouseEnter: () => setHoveredWa(true),
-              onMouseLeave: () => setHoveredWa(false),
-              style: {
-                width: 56,
-                height: 56,
-                borderRadius: "50%",
-                background: "#25D366",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.4rem",
-                textDecoration: "none",
-                boxShadow: "0 8px 24px rgba(37,211,102,0.4)",
-                transition: "transform 0.3s, box-shadow 0.3s",
-                transform: hoveredWa ? "scale(1.12) translateY(-2px)" : "scale(1)"
-              },
-              children: "💬"
-            }
-          ),
-          hoveredWa && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "span",
-            {
-              style: {
-                position: "absolute",
-                right: 70,
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "rgba(0,0,0,0.75)",
-                color: "white",
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                padding: "5px 10px",
-                borderRadius: 8,
-                whiteSpace: "nowrap",
-                fontFamily: "'Poppins', sans-serif"
-              },
-              children: "WhatsApp"
-            }
-          )
-        ] })
-      ]
-    }
-  );
-}
-const WA_NUMBER$3 = "918210485109";
-const WA_MSG$2 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
-const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
-function Footer({ onNavigate }) {
-  const quickLinks = [
-    { label: "About Doctor", page: "about" },
-    { label: "Services", page: "services" },
-    { label: "Why Choose Us", page: "why" },
-    { label: "Patient Reviews", page: "reviews" },
-    { label: "Blog", page: "blog" },
-    { label: "Book Appointment", page: "appointment" },
-    { label: "Contact Us", page: "contact" }
-  ];
-  const services = [
-    "Skin Disorders",
-    "Hair Problems",
-    "Allergy & Asthma",
-    "Migraine Treatment",
-    "Child Care",
-    "Chronic Diseases",
-    "Joint & Bone Disorders",
-    "Women's Health"
-  ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "footer",
-    {
-      style: {
-        background: "#0f2318",
-        color: "rgba(255,255,255,0.8)",
-        padding: "48px 24px 24px"
-      },
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            style: {
-              maxWidth: 1200,
-              margin: "0 auto",
-              display: "grid",
-              gridTemplateColumns: "2fr 1fr 1fr",
-              gap: 48,
-              paddingBottom: 40,
-              borderBottom: "1px solid rgba(255,255,255,0.1)"
-            },
-            className: "footer-grid",
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "span",
-                  {
-                    style: {
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: "1.3rem",
-                      color: "white",
-                      fontWeight: 700,
-                      marginBottom: 12,
-                      display: "block"
-                    },
-                    children: "🌿 Ritesh Homeopathic Clinic"
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "p",
-                  {
-                    style: {
-                      fontSize: "0.82rem",
-                      lineHeight: 1.8,
-                      color: "rgba(255,255,255,0.6)",
-                      maxWidth: 280,
-                      margin: 0
-                    },
-                    children: "Bringing the power of natural homeopathic healing to Daltonganj and the Palamu region. Compassionate, effective and side-effect free care for your entire family."
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "flex", gap: 10, marginTop: 18 }, children: [
-                  {
-                    href: "https://www.facebook.com/share/1792sFnYWf/",
-                    label: "Facebook",
-                    icon: "📘",
-                    extraClass: "footer-social-btn"
-                  },
-                  {
-                    href: "https://www.instagram.com/ritesh_clinic_homoeopathy?igsh=MTVlM255aHN6dXd3Ng==",
-                    label: "Instagram",
-                    icon: "📸",
-                    extraClass: "footer-social-btn"
-                  },
-                  {
-                    href: `https://wa.me/${WA_NUMBER$3}?text=${WA_MSG$2}`,
-                    label: "WhatsApp",
-                    icon: "💬",
-                    extraClass: "footer-social-wa"
-                  }
-                ].map(({ href, label, icon, extraClass }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "a",
-                  {
-                    href,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    title: label,
-                    "aria-label": label,
-                    className: `footer-social-btn ${extraClass}`,
-                    style: {
-                      width: 36,
-                      height: 36,
-                      borderRadius: 10,
-                      background: "rgba(255,255,255,0.08)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1rem",
-                      textDecoration: "none",
-                      transition: "all 0.2s",
-                      flexShrink: 0
-                    },
-                    children: icon
-                  },
-                  label
-                )) })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "h4",
-                  {
-                    style: {
-                      color: "white",
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
-                      margin: "0 0 16px"
-                    },
-                    children: "Quick Links"
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: 0 }, children: quickLinks.map(({ label, page }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { style: { marginBottom: 8 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => onNavigate(page),
-                    className: "footer-link-btn",
-                    style: {
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      color: "rgba(255,255,255,0.6)",
-                      fontSize: "0.82rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      padding: 0,
-                      textAlign: "left",
-                      transition: "color 0.2s"
-                    },
-                    children: label
-                  }
-                ) }, page)) })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "h4",
-                  {
-                    style: {
-                      color: "white",
-                      fontSize: "0.85rem",
-                      fontWeight: 700,
-                      margin: "0 0 16px"
-                    },
-                    children: "Services"
-                  }
-                ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: 0 }, children: services.map((service) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { style: { marginBottom: 8 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => onNavigate("services"),
-                    className: "footer-link-btn",
-                    style: {
-                      background: "none",
-                      border: "none",
-                      cursor: "pointer",
-                      color: "rgba(255,255,255,0.6)",
-                      fontSize: "0.82rem",
-                      fontFamily: "'Poppins', sans-serif",
-                      padding: 0,
-                      textAlign: "left",
-                      transition: "color 0.2s"
-                    },
-                    children: service
-                  }
-                ) }, service)) })
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            style: {
-              maxWidth: 1200,
-              margin: "24px auto 0",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: 12,
-              fontSize: "0.78rem",
-              color: "rgba(255,255,255,0.4)"
-            },
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
-                "© ",
-                currentYear,
-                " Ritesh Homeopathic Clinic. All rights reserved. | Dr. Ritesh Kumar Tiwary, Daltonganj, Jharkhand"
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
-                "© ",
-                currentYear,
-                ". Built with love using",
-                " ",
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "a",
-                  {
-                    href: `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(
-                      typeof window !== "undefined" ? window.location.hostname : "ritesh-clinic"
-                    )}`,
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                    style: { color: "#25a563", textDecoration: "none" },
-                    children: "caffeine.ai"
-                  }
-                )
-              ] })
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-        @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } }
-        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; } }
-      ` })
-      ]
-    }
-  );
-}
-const NAV_LINKS = [
-  { label: "Home", page: "home" },
-  { label: "About Doctor", page: "about" },
-  { label: "Services", page: "services" },
-  { label: "Why Us", page: "why" },
-  { label: "Reviews", page: "reviews" },
-  { label: "Blog", page: "blog" },
-  { label: "Contact", page: "contact" }
-];
-function Nav({ activePage, onNavigate }) {
-  const [mobileOpen, setMobileOpen] = reactExports.useState(false);
-  const [scrolled, setScrolled] = reactExports.useState(false);
-  reactExports.useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const handleNav = (page) => {
-    onNavigate(page);
-    setMobileOpen(false);
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "nav",
-    {
-      style: {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1e3,
-        background: "rgba(255,255,255,0.97)",
-        backdropFilter: "blur(16px)",
-        borderBottom: "1px solid rgba(13,107,59,0.12)",
-        boxShadow: scrolled ? "0 4px 24px rgba(13,107,59,0.15)" : "0 2px 16px rgba(13,107,59,0.08)",
-        transition: "box-shadow 0.3s ease"
-      },
-      "data-ocid": "main-nav",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            style: {
-              maxWidth: 1200,
-              margin: "0 auto",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "0 24px",
-              height: 70
-            },
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => handleNav("home"),
-                  style: {
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 12,
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 0
-                  },
-                  "data-ocid": "nav-logo",
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "div",
-                      {
-                        style: {
-                          width: 44,
-                          height: 44,
-                          borderRadius: "50%",
-                          overflow: "hidden",
-                          border: "2px solid rgba(13,107,59,0.25)",
-                          flexShrink: 0,
-                          boxShadow: "0 2px 8px rgba(13,107,59,0.18)"
-                        },
-                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                          "img",
-                          {
-                            src: "/assets/images/logo.jfif",
-                            alt: "Dr. Ritesh Clinic Logo",
-                            style: {
-                              width: "100%",
-                              height: "100%",
-                              objectFit: "cover",
-                              objectPosition: "top center"
-                            }
-                          }
-                        )
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { lineHeight: 1.2, textAlign: "left" }, children: [
-                      /* @__PURE__ */ jsxRuntimeExports.jsx(
-                        "strong",
-                        {
-                          style: {
-                            display: "block",
-                            fontFamily: "'Playfair Display', serif",
-                            fontSize: "1rem",
-                            color: "#0d6b3b"
-                          },
-                          children: "Ritesh Homeopathic Clinic"
-                        }
-                      ),
-                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { fontSize: "0.7rem", color: "#5c7a66" }, children: "Daltonganj, Jharkhand" })
-                    ] })
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "ul",
-                {
-                  className: "hidden md:flex",
-                  style: {
-                    alignItems: "center",
-                    gap: 6,
-                    listStyle: "none",
-                    margin: 0,
-                    padding: 0
-                  },
-                  children: [
-                    NAV_LINKS.map(({ label, page }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "button",
-                      {
-                        type: "button",
-                        onClick: () => handleNav(page),
-                        "data-ocid": `nav-link-${page}`,
-                        className: `nav-link-btn${activePage === page ? " nav-link-active" : ""}`,
-                        style: {
-                          background: activePage === page ? "#f0faf5" : "transparent",
-                          color: activePage === page ? "#0d6b3b" : "#2d4a38",
-                          fontWeight: activePage === page ? 600 : 500,
-                          border: "none",
-                          cursor: "pointer",
-                          fontSize: "0.85rem",
-                          padding: "8px 14px",
-                          borderRadius: 8,
-                          fontFamily: "'Poppins', sans-serif",
-                          transition: "background 0.2s, color 0.2s"
-                        },
-                        children: label
-                      }
-                    ) }, page)),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "button",
-                      {
-                        type: "button",
-                        onClick: () => handleNav("appointment"),
-                        "data-ocid": "nav-cta-book",
-                        className: "nav-cta-btn",
-                        style: {
-                          background: "#0d6b3b",
-                          color: "white",
-                          border: "none",
-                          cursor: "pointer",
-                          fontSize: "0.85rem",
-                          fontWeight: 600,
-                          padding: "8px 16px",
-                          borderRadius: 10,
-                          fontFamily: "'Poppins', sans-serif",
-                          transition: "background 0.2s, transform 0.2s"
-                        },
-                        children: "📅 Book Appointment"
-                      }
-                    ) })
-                  ]
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => setMobileOpen((o) => !o),
-                  "aria-label": "Toggle menu",
-                  "data-ocid": "nav-hamburger",
-                  className: "flex md:hidden",
-                  style: {
-                    flexDirection: "column",
-                    gap: 5,
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                    padding: 4
-                  },
-                  children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "span",
-                      {
-                        style: {
-                          display: "block",
-                          width: 24,
-                          height: 2.5,
-                          background: "#0d6b3b",
-                          borderRadius: 2,
-                          transition: "all 0.3s",
-                          transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none"
-                        }
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "span",
-                      {
-                        style: {
-                          display: "block",
-                          width: 24,
-                          height: 2.5,
-                          background: "#0d6b3b",
-                          borderRadius: 2,
-                          transition: "all 0.3s",
-                          opacity: mobileOpen ? 0 : 1
-                        }
-                      }
-                    ),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx(
-                      "span",
-                      {
-                        style: {
-                          display: "block",
-                          width: 24,
-                          height: 2.5,
-                          background: "#0d6b3b",
-                          borderRadius: 2,
-                          transition: "all 0.3s",
-                          transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none"
-                        }
-                      }
-                    )
-                  ]
-                }
-              )
-            ]
-          }
-        ),
-        mobileOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          "div",
-          {
-            className: "slide-down",
-            style: {
-              display: "flex",
-              flexDirection: "column",
-              gap: 4,
-              padding: "12px 20px 20px",
-              background: "white",
-              borderTop: "1px solid rgba(13,107,59,0.12)"
-            },
-            "data-ocid": "mobile-menu",
-            children: [
-              [
-                { label: "🏠 Home", page: "home" },
-                { label: "👨‍⚕️ About Doctor", page: "about" },
-                { label: "🩺 Services", page: "services" },
-                { label: "⭐ Why Choose Us", page: "why" },
-                { label: "💬 Patient Reviews", page: "reviews" },
-                { label: "📝 Blog", page: "blog" },
-                { label: "📍 Contact", page: "contact" }
-              ].map(({ label, page }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => handleNav(page),
-                  style: {
-                    background: activePage === page ? "#f0faf5" : "transparent",
-                    color: activePage === page ? "#0d6b3b" : "#2d4a38",
-                    fontWeight: activePage === page ? 600 : 500,
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "0.9rem",
-                    padding: "10px 12px",
-                    borderRadius: 8,
-                    textAlign: "left",
-                    fontFamily: "'Poppins', sans-serif"
-                  },
-                  children: label
-                },
-                page
-              )),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => handleNav("appointment"),
-                  style: {
-                    background: "#0d6b3b",
-                    color: "white",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "0.9rem",
-                    fontWeight: 700,
-                    padding: "10px 12px",
-                    borderRadius: 8,
-                    textAlign: "left",
-                    fontFamily: "'Poppins', sans-serif",
-                    marginTop: 4
-                  },
-                  children: "📅 Book Appointment"
-                }
-              )
-            ]
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
-        .nav-link-btn:hover { background: #f0faf5 !important; color: #0d6b3b !important; }
-        .nav-cta-btn:hover { background: #1a8a4e !important; transform: translateY(-1px) !important; }
-      ` })
-      ]
-    }
-  );
-}
 const CLINIC_GALLERY = [
   {
     src: "/assets/images/clinic-billboard-night.jpg",
@@ -15769,8 +15040,8 @@ function About({ onNavigate }) {
       ` })
   ] });
 }
-const WA_NUMBER$2 = "918210485109";
-const CALL_NUMBER$1 = "+916207962161";
+const WA_NUMBER$4 = "918210485109";
+const CALL_NUMBER$2 = "+916207962161";
 function Appointment({
   onNavigate: _onNavigate
 }) {
@@ -15807,7 +15078,7 @@ function Appointment({
 ━━━━━━━━━━━━━━━━
 Sent from Ritesh Homeopathic Clinic website`;
     window.open(
-      `https://wa.me/${WA_NUMBER$2}?text=${encodeURIComponent(waText)}`,
+      `https://wa.me/${WA_NUMBER$4}?text=${encodeURIComponent(waText)}`,
       "_blank"
     );
     setSubmitted(true);
@@ -15899,7 +15170,7 @@ Sent from Ritesh Homeopathic Clinic website`;
                   /* @__PURE__ */ jsxRuntimeExports.jsxs(
                     "a",
                     {
-                      href: `tel:${CALL_NUMBER$1}`,
+                      href: `tel:${CALL_NUMBER$2}`,
                       "data-ocid": "appt-call-chip",
                       style: {
                         display: "flex",
@@ -15952,7 +15223,7 @@ Sent from Ritesh Homeopathic Clinic website`;
                   /* @__PURE__ */ jsxRuntimeExports.jsxs(
                     "a",
                     {
-                      href: `https://wa.me/${WA_NUMBER$2}?text=${encodeURIComponent("Hello Dr. Ritesh, I want to book an appointment.")}`,
+                      href: `https://wa.me/${WA_NUMBER$4}?text=${encodeURIComponent("Hello Dr. Ritesh, I want to book an appointment.")}`,
                       target: "_blank",
                       rel: "noopener noreferrer",
                       "data-ocid": "appt-wa-chip",
@@ -16812,9 +16083,9 @@ function Blog({ onNavigate }) {
     }
   );
 }
-const WA_NUMBER$1 = "918210485109";
-const WA_MSG$1 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
-const CALL_NUMBER = "+916207962161";
+const WA_NUMBER$3 = "918210485109";
+const WA_MSG$3 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
+const CALL_NUMBER$1 = "+916207962161";
 function Contact({ onNavigate: _onNavigate }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "section",
@@ -17024,7 +16295,7 @@ function Contact({ onNavigate: _onNavigate }) {
                             /* @__PURE__ */ jsxRuntimeExports.jsx(
                               "a",
                               {
-                                href: `tel:${CALL_NUMBER}`,
+                                href: `tel:${CALL_NUMBER$1}`,
                                 style: {
                                   color: "white",
                                   textDecoration: "none",
@@ -17036,7 +16307,7 @@ function Contact({ onNavigate: _onNavigate }) {
                             /* @__PURE__ */ jsxRuntimeExports.jsx(
                               "a",
                               {
-                                href: `https://wa.me/${WA_NUMBER$1}?text=${WA_MSG$1}`,
+                                href: `https://wa.me/${WA_NUMBER$3}?text=${WA_MSG$3}`,
                                 target: "_blank",
                                 rel: "noopener noreferrer",
                                 style: {
@@ -17166,7 +16437,7 @@ function Contact({ onNavigate: _onNavigate }) {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "a",
                   {
-                    href: `https://wa.me/${WA_NUMBER$1}?text=${WA_MSG$1}`,
+                    href: `https://wa.me/${WA_NUMBER$3}?text=${WA_MSG$3}`,
                     target: "_blank",
                     rel: "noopener noreferrer",
                     "data-ocid": "contact-wa-cta",
@@ -17193,7 +16464,7 @@ function Contact({ onNavigate: _onNavigate }) {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "a",
                   {
-                    href: `tel:${CALL_NUMBER}`,
+                    href: `tel:${CALL_NUMBER$1}`,
                     "data-ocid": "contact-call-cta",
                     className: "btn-white-hover",
                     style: {
@@ -17230,8 +16501,8 @@ function Contact({ onNavigate: _onNavigate }) {
     }
   );
 }
-const WA_NUMBER = "918210485109";
-const WA_MSG = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
+const WA_NUMBER$2 = "918210485109";
+const WA_MSG$2 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
 const STATS = [
   { num: "10+", label: "Years Experience" },
   { num: "5000+", label: "Patients Treated" },
@@ -17514,7 +16785,7 @@ function Home({ onNavigate }) {
                         /* @__PURE__ */ jsxRuntimeExports.jsx(
                           "a",
                           {
-                            href: `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`,
+                            href: `https://wa.me/${WA_NUMBER$2}?text=${WA_MSG$2}`,
                             target: "_blank",
                             rel: "noopener noreferrer",
                             "data-ocid": "hero-cta-wa",
@@ -17729,34 +17000,6 @@ function Home({ onNavigate }) {
             }
           )
         ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        style: {
-          width: "100%",
-          overflow: "hidden",
-          lineHeight: 0,
-          borderTop: "3px solid #c9a84c",
-          borderBottom: "3px solid #0d6b3b"
-        },
-        "data-ocid": "hindi-banner",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "img",
-          {
-            src: "/assets/images/hindi-banner.jpg",
-            alt: "डॉ. रितेश होम्योपैथिक क्लिनिक — दालतोनगंज",
-            loading: "lazy",
-            style: {
-              width: "100%",
-              maxHeight: 220,
-              objectFit: "cover",
-              objectPosition: "center 30%",
-              display: "block"
-            }
-          }
-        )
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -18248,7 +17491,7 @@ function Home({ onNavigate }) {
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   "a",
                   {
-                    href: `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`,
+                    href: `https://wa.me/${WA_NUMBER$2}?text=${WA_MSG$2}`,
                     target: "_blank",
                     rel: "noopener noreferrer",
                     className: "btn-wa-hover",
@@ -19301,6 +18544,52 @@ function Why({ onNavigate }) {
     }
   );
 }
+const PAGE_DEFINITIONS = [
+  { id: "home", label: "Home", mobileLabel: "🏠 Home", showInPrimaryNav: true },
+  {
+    id: "about",
+    label: "About Doctor",
+    mobileLabel: "👨‍⚕️ About Doctor",
+    showInPrimaryNav: true
+  },
+  {
+    id: "services",
+    label: "Services",
+    mobileLabel: "🩺 Services",
+    showInPrimaryNav: true
+  },
+  {
+    id: "why",
+    label: "Why Choose Us",
+    mobileLabel: "⭐ Why Choose Us",
+    showInPrimaryNav: true
+  },
+  {
+    id: "reviews",
+    label: "Patient Reviews",
+    mobileLabel: "💬 Patient Reviews",
+    showInPrimaryNav: true
+  },
+  { id: "blog", label: "Blog", mobileLabel: "📝 Blog", showInPrimaryNav: true },
+  {
+    id: "appointment",
+    label: "Book Appointment",
+    mobileLabel: "📅 Book Appointment"
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    mobileLabel: "📍 Contact",
+    showInPrimaryNav: true
+  }
+];
+const PAGE_LABELS = Object.fromEntries(
+  PAGE_DEFINITIONS.map(({ id, label }) => [id, label])
+);
+const PRIMARY_NAV_PAGES = PAGE_DEFINITIONS.filter(
+  ({ showInPrimaryNav }) => showInPrimaryNav
+);
+const PAGE_ORDER = PAGE_DEFINITIONS.map(({ id }) => id);
 const PAGE_COMPONENTS = {
   home: Home,
   about: About,
@@ -19311,22 +18600,718 @@ const PAGE_COMPONENTS = {
   appointment: Appointment,
   contact: Contact
 };
-const ALL_PAGES = [
-  "home",
-  "about",
-  "services",
-  "why",
-  "reviews",
-  "blog",
-  "appointment",
-  "contact"
-];
-function App() {
-  const [activePage, setActivePage] = reactExports.useState("home");
+function Breadcrumb({
+  activePage,
+  onNavigate
+}) {
+  if (activePage === "home") return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      style: {
+        background: "#f0faf5",
+        borderBottom: "1px solid rgba(13,107,59,0.12)",
+        padding: "10px 24px",
+        display: "flex",
+        alignItems: "center",
+        gap: 8,
+        fontSize: "0.8rem",
+        color: "#5c7a66",
+        position: "sticky",
+        top: 70,
+        zIndex: 99
+      },
+      "data-ocid": "breadcrumb-bar",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "button",
+          {
+            type: "button",
+            onClick: () => onNavigate("home"),
+            style: {
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              color: "#5c7a66",
+              fontSize: "0.8rem",
+              fontFamily: "'Poppins', sans-serif",
+              padding: 0,
+              textDecoration: "underline"
+            },
+            className: "breadcrumb-home-btn",
+            children: "🏠 Home"
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "›" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "#0d6b3b", fontWeight: 600 }, children: PAGE_LABELS[activePage] })
+      ]
+    }
+  );
+}
+const WA_NUMBER$1 = "918210485109";
+const CALL_NUMBER = "+916207962161";
+const WA_MSG$1 = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
+function FloatingActions() {
+  const [hoveredCall, setHoveredCall] = reactExports.useState(false);
+  const [hoveredWa, setHoveredWa] = reactExports.useState(false);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "div",
+    {
+      style: {
+        position: "fixed",
+        bottom: 28,
+        right: 24,
+        zIndex: 999,
+        display: "flex",
+        flexDirection: "column",
+        gap: 12
+      },
+      "data-ocid": "floating-actions",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { position: "relative" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: `tel:${CALL_NUMBER}`,
+              "aria-label": "Call the clinic",
+              "data-ocid": "fab-call",
+              onMouseEnter: () => setHoveredCall(true),
+              onMouseLeave: () => setHoveredCall(false),
+              style: {
+                width: 56,
+                height: 56,
+                borderRadius: "50%",
+                background: "#4285F4",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.4rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 24px rgba(66,133,244,0.4)",
+                transition: "transform 0.3s, box-shadow 0.3s",
+                transform: hoveredCall ? "scale(1.12) translateY(-2px)" : "scale(1)"
+              },
+              children: "📞"
+            }
+          ),
+          hoveredCall && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              style: {
+                position: "absolute",
+                right: 70,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.75)",
+                color: "white",
+                fontSize: "0.72rem",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: 8,
+                whiteSpace: "nowrap",
+                fontFamily: "'Poppins', sans-serif"
+              },
+              children: "Call Us"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { position: "relative" }, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: `https://wa.me/${WA_NUMBER$1}?text=${WA_MSG$1}`,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              "aria-label": "WhatsApp consultation",
+              "data-ocid": "fab-whatsapp",
+              onMouseEnter: () => setHoveredWa(true),
+              onMouseLeave: () => setHoveredWa(false),
+              style: {
+                width: 56,
+                height: 56,
+                borderRadius: "50%",
+                background: "#25D366",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "1.4rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 24px rgba(37,211,102,0.4)",
+                transition: "transform 0.3s, box-shadow 0.3s",
+                transform: hoveredWa ? "scale(1.12) translateY(-2px)" : "scale(1)"
+              },
+              children: "💬"
+            }
+          ),
+          hoveredWa && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              style: {
+                position: "absolute",
+                right: 70,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(0,0,0,0.75)",
+                color: "white",
+                fontSize: "0.72rem",
+                fontWeight: 600,
+                padding: "5px 10px",
+                borderRadius: 8,
+                whiteSpace: "nowrap",
+                fontFamily: "'Poppins', sans-serif"
+              },
+              children: "WhatsApp"
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+const WA_NUMBER = "918210485109";
+const WA_MSG = encodeURIComponent("Hello Dr. Ritesh, I need a consultation.");
+const currentYear = (/* @__PURE__ */ new Date()).getFullYear();
+function Footer({ onNavigate }) {
+  const quickLinks = [
+    "about",
+    "services",
+    "why",
+    "reviews",
+    "blog",
+    "appointment",
+    "contact"
+  ];
+  const services = [
+    "Skin Disorders",
+    "Hair Problems",
+    "Allergy & Asthma",
+    "Migraine Treatment",
+    "Child Care",
+    "Chronic Diseases",
+    "Joint & Bone Disorders",
+    "Women's Health"
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "footer",
+    {
+      style: {
+        background: "#0f2318",
+        color: "rgba(255,255,255,0.8)",
+        padding: "48px 24px 24px"
+      },
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            style: {
+              maxWidth: 1200,
+              margin: "0 auto",
+              display: "grid",
+              gridTemplateColumns: "2fr 1fr 1fr",
+              gap: 48,
+              paddingBottom: 40,
+              borderBottom: "1px solid rgba(255,255,255,0.1)"
+            },
+            className: "footer-grid",
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "span",
+                  {
+                    style: {
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "1.3rem",
+                      color: "white",
+                      fontWeight: 700,
+                      marginBottom: 12,
+                      display: "block"
+                    },
+                    children: "🌿 Ritesh Homeopathic Clinic"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "p",
+                  {
+                    style: {
+                      fontSize: "0.82rem",
+                      lineHeight: 1.8,
+                      color: "rgba(255,255,255,0.6)",
+                      maxWidth: 280,
+                      margin: 0
+                    },
+                    children: "Bringing the power of natural homeopathic healing to Daltonganj and the Palamu region. Compassionate, effective and side-effect free care for your entire family."
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { display: "flex", gap: 10, marginTop: 18 }, children: [
+                  {
+                    href: "https://www.facebook.com/share/1792sFnYWf/",
+                    label: "Facebook",
+                    icon: "📘",
+                    extraClass: "footer-social-btn"
+                  },
+                  {
+                    href: "https://www.instagram.com/ritesh_clinic_homoeopathy?igsh=MTVlM255aHN6dXd3Ng==",
+                    label: "Instagram",
+                    icon: "📸",
+                    extraClass: "footer-social-btn"
+                  },
+                  {
+                    href: `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`,
+                    label: "WhatsApp",
+                    icon: "💬",
+                    extraClass: "footer-social-wa"
+                  }
+                ].map(({ href, label, icon, extraClass }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "a",
+                  {
+                    href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    title: label,
+                    "aria-label": label,
+                    className: `footer-social-btn ${extraClass}`,
+                    style: {
+                      width: 36,
+                      height: 36,
+                      borderRadius: 10,
+                      background: "rgba(255,255,255,0.08)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "1rem",
+                      textDecoration: "none",
+                      transition: "all 0.2s",
+                      flexShrink: 0
+                    },
+                    children: icon
+                  },
+                  label
+                )) })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "h4",
+                  {
+                    style: {
+                      color: "white",
+                      fontSize: "0.85rem",
+                      fontWeight: 700,
+                      margin: "0 0 16px"
+                    },
+                    children: "Quick Links"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: 0 }, children: quickLinks.map((page) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { style: { marginBottom: 8 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => onNavigate(page),
+                    className: "footer-link-btn",
+                    style: {
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      color: "rgba(255,255,255,0.6)",
+                      fontSize: "0.82rem",
+                      fontFamily: "'Poppins', sans-serif",
+                      padding: 0,
+                      textAlign: "left",
+                      transition: "color 0.2s"
+                    },
+                    children: page === "contact" ? "Contact Us" : PAGE_LABELS[page]
+                  }
+                ) }, page)) })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "h4",
+                  {
+                    style: {
+                      color: "white",
+                      fontSize: "0.85rem",
+                      fontWeight: 700,
+                      margin: "0 0 16px"
+                    },
+                    children: "Services"
+                  }
+                ),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { listStyle: "none", padding: 0, margin: 0 }, children: services.map((service) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { style: { marginBottom: 8 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "button",
+                  {
+                    type: "button",
+                    onClick: () => onNavigate("services"),
+                    className: "footer-link-btn",
+                    style: {
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      color: "rgba(255,255,255,0.6)",
+                      fontSize: "0.82rem",
+                      fontFamily: "'Poppins', sans-serif",
+                      padding: 0,
+                      textAlign: "left",
+                      transition: "color 0.2s"
+                    },
+                    children: service
+                  }
+                ) }, service)) })
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            style: {
+              maxWidth: 1200,
+              margin: "24px auto 0",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 12,
+              fontSize: "0.78rem",
+              color: "rgba(255,255,255,0.4)"
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+                "© ",
+                currentYear,
+                " Ritesh Homeopathic Clinic. All rights reserved. | Dr. Ritesh Kumar Tiwary, Daltonganj, Jharkhand"
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { children: [
+                "© ",
+                currentYear,
+                ". Built with love using",
+                " ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(
+                  "a",
+                  {
+                    href: `https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(
+                      typeof window !== "undefined" ? window.location.hostname : "ritesh-clinic"
+                    )}`,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    style: { color: "#25a563", textDecoration: "none" },
+                    children: "caffeine.ai"
+                  }
+                )
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+        @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; } }
+      ` })
+      ]
+    }
+  );
+}
+function Nav({ activePage, onNavigate }) {
+  const [mobileOpen, setMobileOpen] = reactExports.useState(false);
+  const [scrolled, setScrolled] = reactExports.useState(false);
+  reactExports.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  const handleNav = (page) => {
+    onNavigate(page);
+    setMobileOpen(false);
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+    "nav",
+    {
+      style: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 1e3,
+        background: "rgba(255,255,255,0.97)",
+        backdropFilter: "blur(16px)",
+        borderBottom: "1px solid rgba(13,107,59,0.12)",
+        boxShadow: scrolled ? "0 4px 24px rgba(13,107,59,0.15)" : "0 2px 16px rgba(13,107,59,0.08)",
+        transition: "box-shadow 0.3s ease"
+      },
+      "data-ocid": "main-nav",
+      children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            style: {
+              maxWidth: 1200,
+              margin: "0 auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "0 24px",
+              height: 70
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => handleNav("home"),
+                  style: {
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 0
+                  },
+                  "data-ocid": "nav-logo",
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "div",
+                      {
+                        style: {
+                          width: 44,
+                          height: 44,
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                          border: "2px solid rgba(13,107,59,0.25)",
+                          flexShrink: 0,
+                          boxShadow: "0 2px 8px rgba(13,107,59,0.18)"
+                        },
+                        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                          "img",
+                          {
+                            src: "/assets/images/logo.jfif",
+                            alt: "Dr. Ritesh Clinic Logo",
+                            style: {
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "top center"
+                            }
+                          }
+                        )
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { lineHeight: 1.2, textAlign: "left" }, children: [
+                      /* @__PURE__ */ jsxRuntimeExports.jsx(
+                        "strong",
+                        {
+                          style: {
+                            display: "block",
+                            fontFamily: "'Playfair Display', serif",
+                            fontSize: "1rem",
+                            color: "#0d6b3b"
+                          },
+                          children: "Ritesh Homeopathic Clinic"
+                        }
+                      ),
+                      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { fontSize: "0.7rem", color: "#5c7a66" }, children: "Daltonganj, Jharkhand" })
+                    ] })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "ul",
+                {
+                  className: "hidden md:flex",
+                  style: {
+                    alignItems: "center",
+                    gap: 6,
+                    listStyle: "none",
+                    margin: 0,
+                    padding: 0
+                  },
+                  children: [
+                    PRIMARY_NAV_PAGES.map(({ label, id: page }) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        onClick: () => handleNav(page),
+                        "data-ocid": `nav-link-${page}`,
+                        className: `nav-link-btn${activePage === page ? " nav-link-active" : ""}`,
+                        style: {
+                          background: activePage === page ? "#f0faf5" : "transparent",
+                          color: activePage === page ? "#0d6b3b" : "#2d4a38",
+                          fontWeight: activePage === page ? 600 : 500,
+                          border: "none",
+                          cursor: "pointer",
+                          fontSize: "0.85rem",
+                          padding: "8px 14px",
+                          borderRadius: 8,
+                          fontFamily: "'Poppins', sans-serif",
+                          transition: "background 0.2s, color 0.2s"
+                        },
+                        children: label
+                      }
+                    ) }, page)),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "button",
+                      {
+                        type: "button",
+                        onClick: () => handleNav("appointment"),
+                        "data-ocid": "nav-cta-book",
+                        className: "nav-cta-btn",
+                        style: {
+                          background: "#0d6b3b",
+                          color: "white",
+                          border: "none",
+                          cursor: "pointer",
+                          fontSize: "0.85rem",
+                          fontWeight: 600,
+                          padding: "8px 16px",
+                          borderRadius: 10,
+                          fontFamily: "'Poppins', sans-serif",
+                          transition: "background 0.2s, transform 0.2s"
+                        },
+                        children: "📅 Book Appointment"
+                      }
+                    ) })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => setMobileOpen((o) => !o),
+                  "aria-label": "Toggle menu",
+                  "data-ocid": "nav-hamburger",
+                  className: "flex md:hidden",
+                  style: {
+                    flexDirection: "column",
+                    gap: 5,
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                    padding: 4
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        style: {
+                          display: "block",
+                          width: 24,
+                          height: 2.5,
+                          background: "#0d6b3b",
+                          borderRadius: 2,
+                          transition: "all 0.3s",
+                          transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none"
+                        }
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        style: {
+                          display: "block",
+                          width: 24,
+                          height: 2.5,
+                          background: "#0d6b3b",
+                          borderRadius: 2,
+                          transition: "all 0.3s",
+                          opacity: mobileOpen ? 0 : 1
+                        }
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      "span",
+                      {
+                        style: {
+                          display: "block",
+                          width: 24,
+                          height: 2.5,
+                          background: "#0d6b3b",
+                          borderRadius: 2,
+                          transition: "all 0.3s",
+                          transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none"
+                        }
+                      }
+                    )
+                  ]
+                }
+              )
+            ]
+          }
+        ),
+        mobileOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(
+          "div",
+          {
+            className: "slide-down",
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              gap: 4,
+              padding: "12px 20px 20px",
+              background: "white",
+              borderTop: "1px solid rgba(13,107,59,0.12)"
+            },
+            "data-ocid": "mobile-menu",
+            children: [
+              PRIMARY_NAV_PAGES.map(({ mobileLabel, label, id: page }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => handleNav(page),
+                  style: {
+                    background: activePage === page ? "#f0faf5" : "transparent",
+                    color: activePage === page ? "#0d6b3b" : "#2d4a38",
+                    fontWeight: activePage === page ? 600 : 500,
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "0.9rem",
+                    padding: "10px 12px",
+                    borderRadius: 8,
+                    textAlign: "left",
+                    fontFamily: "'Poppins', sans-serif"
+                  },
+                  children: mobileLabel ?? label
+                },
+                page
+              )),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => handleNav("appointment"),
+                  style: {
+                    background: "#0d6b3b",
+                    color: "white",
+                    border: "none",
+                    cursor: "pointer",
+                    fontSize: "0.9rem",
+                    fontWeight: 700,
+                    padding: "10px 12px",
+                    borderRadius: 8,
+                    textAlign: "left",
+                    fontFamily: "'Poppins', sans-serif",
+                    marginTop: 4
+                  },
+                  children: "📅 Book Appointment"
+                }
+              )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("style", { children: `
+        .nav-link-btn:hover { background: #f0faf5 !important; color: #0d6b3b !important; }
+        .nav-cta-btn:hover { background: #1a8a4e !important; transform: translateY(-1px) !important; }
+      ` })
+      ]
+    }
+  );
+}
+function usePageNavigation(initialPage = "home") {
+  const [activePage, setActivePage] = reactExports.useState(initialPage);
   const navigate = (page) => {
     setActivePage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  return { activePage, navigate };
+}
+function App() {
+  const { activePage, navigate } = usePageNavigation();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "div",
     {
@@ -19339,7 +19324,7 @@ function App() {
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, { activePage, onNavigate: navigate }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Breadcrumb, { activePage, onNavigate: navigate }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("main", { children: ALL_PAGES.map((page) => {
+        /* @__PURE__ */ jsxRuntimeExports.jsx("main", { children: PAGE_ORDER.map((page) => {
           const Component2 = PAGE_COMPONENTS[page];
           const isActive = activePage === page;
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
